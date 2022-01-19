@@ -1,24 +1,21 @@
 ---
 layout: page
-title: project 1
-description: a project with a background image
-img: assets/img/12.jpg
-importance: 1
+title: The Hierarchical Architecture of the Visual Cortex?
+description: NMA2021 Computational Neuroscience Project
+img: /assets/img/12.jpg
+importance: 2
 category: work
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+Human visual system is known to have an anatomical and functional hierarchical structure. Different regions of the visual cortex process different visual information in a hierarchy from basic features to object recognition. Recent advances in computer vision allow deep neural network models (DNN) to recognize visual stimulation with high accuracy. Does the DNN capture feature information of images in a way that the brain does? If so, what does this imply about the hierarchy of the visual system as a network?
+Using fMRI responses while viewing images, we explore whether DNN models can explain the hierarchy of representations in the visual cortex.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+There are two hypotheses we want to test.
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+First, we want to examine the correspondance of the hierarchy of DNN model to the visual cortex by testing whether fMRI responses in the visual cortex can be predicted by the layers of a DNN model. We will extract each layer activations of a image classification DNN model (e.g. AlexNet, CorNet) for all the images of Kay et al. fMRI dataset. Then, we will train voxel-wise encoding models to predict fMRI responses in different regions of the visual cortex (7 regions including V1, V2, V3, V3A, V3B, V4, LatOcc) from the activations of each model layer (8 layers), and compute prediction performance on an separate test dataset.  If our hypothesis is correct, we will find that activations of the initial layers in the model accurately predict the neural reponses of lower regions in visual cortex, and vice-versa. Also, we will compare the results with a null model performance, i.e. the prediction performance of a randomly initialized DNN model not trained on image classification.
+
+Second, we will examine the representations of the hierarchical architecture of visual processing. We hypothesize that the lower regions in the visual cortex represent low-level information (e.g., spatial information) as do the initial layers of the DNN model, whereas the higher regions in the visual cortex represent high-level information (e.g., categorial information) as do the deeper layers of the DNN model. First, to explore which brain region preserves spatial information, we will feed spatially transformed images (e.g. translation, scale, rotation, clutter) to the DNN model and observe how it changes the performance of layers predicting fMRI responses in each region. The layers and regions where encoding performance suffers most is considered to be more relevant to spatial information. Next, to find which region encodes categorical information, we will calculate representational dissimilarity matrices of fMRI responses to images in each brain region. If a brain region encodes categorical information, we will see patterns of similarity for images in the same category in the dissimilarity matrix.
+
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
