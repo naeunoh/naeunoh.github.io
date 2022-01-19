@@ -1,18 +1,11 @@
-"Adams":
-  - firstname: ["Edwin", "E.", "E. P.", "Edwin Plimpton"]
-    url: https://en.wikipedia.org/wiki/Edwin_Plimpton_Adams
+"Kim":
+  - firstname: ["Kim, H.", "Hairin", "H.", "Hairin Kim"]
+    url: https://www.researchgate.net/profile/Hairin-Kim
 
-"Podolsky":
-  - firstname: ["Boris", "B.", "B. Y.", "Boris Yakovlevich"]
-    url: https://en.wikipedia.org/wiki/Boris_Podolsky
+"Kwak":
+  - firstname: ["Kwak, S.", "Seyul", "S.", "Seyul Kwak"]
+    url: https://www.researchgate.net/profile/Seyul-Kwak
 
-"Rosen":
-  - firstname: ["Nathan", "N."]
-    url: https://en.wikipedia.org/wiki/Nathan_Rosen
-
-"Bach": 
-  - firstname: ["Johann Sebastian", "J. S."]
-    url: https://en.wikipedia.org/wiki/Johann_Sebastian_Bach
-
-  - firstname: ["Carl Philipp Emanuel", "C. P. E."]
-    url: https://en.wikipedia.org/wiki/Carl_Philipp_Emanuel_Bach
+"Chey":
+  - firstname: ["Chey, J.", "Jeanyung", "J.", "Jeanyung Chey"]
+    url: https://www.researchgate.net/profile/Jeanyung-Chey
