@@ -4,4 +4,4 @@ date: 2021-11-24 15:59:00-0400
 inline: true
 ---
 
-Presentation at NRP 2021 DemoDay - XR Showcase.
+ Presentation at NRP 2021 DemoDay - XR Showcase. <a href="https://youtu.be/ygOEY0dL73s?t=2747">Link</a>
