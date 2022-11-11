@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Link to <a href="https://naeunoh.github.io/assets/pdf/CV_NaeunOh.pdf">CV</a>
+subtitle: Link to [CV](https://naeunoh.github.io/assets/pdf/CV_NaeunOh.pdf)
 
 profile:
   align: right
