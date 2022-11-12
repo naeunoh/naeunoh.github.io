@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Functional Alignment
-permalink: /Functional Alignment
+permalink: /Functional_Alignment
 ---
 
 # Functional Alignment
