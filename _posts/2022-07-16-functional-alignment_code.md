@@ -81,7 +81,7 @@ mask_x = expand_mask(mask)
 mask.plot()
 ```
 
-![png]({{ site.baseurl }}/assets/img/Functional%20Alignment/Functional%20Alignment_6_0.png){: .center-image }
+![png]({{ site.baseurl }}/assets/img/Functional%20Alignment/Functional%20Alignment_6_0.png){: .center-image width=50%}
 
 As an example, let's extract voxel activity within the early visual cortex (i.e. ROI 4) from the second half of Sherlock (i.e. Part2) using hdf5 files.
 Brain_Data class of nltools loads data.
