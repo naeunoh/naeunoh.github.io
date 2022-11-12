@@ -3,7 +3,7 @@ layout: post
 title: Neuroimaging - Naturalistic Data Analysis
 date: 2022-07-15 15:09:00
 description: naturalistic data analysis
-tags: neuroimaging psychology analysis methods
+tags: neuroimaging psychology analysis-methods
 categories: neuroimaging
 ---
 
