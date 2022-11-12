@@ -81,7 +81,7 @@ mask_x = expand_mask(mask)
 mask.plot()
 ```
 
-![png]({{ site.baseurl }}/assets/img/Functional%20Alignment/Functional%20Alignment_6_0.png){: .center-image width=50%}
+![png]({{ site.baseurl }}/assets/img/Functional%20Alignment/Functional%20Alignment_6_0.png){: .center-image width=30%}
 
 As an example, let's extract voxel activity within the early visual cortex (i.e. ROI 4) from the second half of Sherlock (i.e. Part2) using hdf5 files.
 Brain_Data class of nltools loads data.
@@ -121,7 +121,7 @@ roi_mask.plot()
     sub-03
     sub-04
 
-![png]({{ site.baseurl }}/assets/img/Functional%20Alignment/Functional%20Alignment_8_1.png){: .center-image }
+![png]({{ site.baseurl }}/assets/img/Functional%20Alignment/Functional%20Alignment_8_1.png){: .center-image width=30%}
 
 ```python
 # Hyperalignment using procrustes transform
@@ -433,151 +433,4 @@ s16_pt1_srm_transformed.shape
 srm_transformed = []
 for i,x in enumerate(all_data[:15]):
     srm_transformed.append(np.dot(x.standardize(method='zscore').data, srm['transformation_matrix'][i].data.T))
-```
-
-```python
-for scan in ['Part1', 'Part2']:
-    file_list = glob.glob(os.path.join(data_dir, 'fmriprep', '*', 'func', f'*crop*{scan}*hdf5'))
-    for f in file_list:
-        sub = os.path.basename(f).split('_')[0]
-        print(sub)
-        data = Brain_Data(f)
-        roi = data.extract_roi(mask)
-        pd.DataFrame(roi.T).to_csv(os.path.join(os.path.dirname(f), f"{sub}_{scan}_Average_ROI_n50.csv" ), index=False)
-```
-
-    sub-13
-
-
-    ---------------------------------------------------------------------------
-
-    FileNotFoundError                         Traceback (most recent call last)
-
-    /var/folders/4t/cb2v55gd1hq4gd8m2jdvpccm0000gn/T/ipykernel_37338/405593372.py in <module>
-          6         data = Brain_Data(f)
-          7         roi = data.extract_roi(mask)
-    ----> 8         pd.DataFrame(roi.T).to_csv(os.path.join(os.path.dirname(f), f"{sub}_{scan}_Average_ROI_n50.csv" ), index=False)
-    
-
-    ~/miniconda3/envs/naturalistic37/lib/python3.7/site-packages/pandas/core/generic.py in to_csv(self, path_or_buf, sep, na_rep, float_format, columns, header, index, index_label, mode, encoding, compression, quoting, quotechar, line_terminator, chunksize, date_format, doublequote, escapechar, decimal, errors, storage_options)
-       3480             doublequote=doublequote,
-       3481             escapechar=escapechar,
-    -> 3482             storage_options=storage_options,
-       3483         )
-       3484 
-    
-
-    ~/miniconda3/envs/naturalistic37/lib/python3.7/site-packages/pandas/io/formats/format.py in to_csv(self, path_or_buf, encoding, sep, columns, index_label, mode, compression, quoting, quotechar, line_terminator, chunksize, date_format, doublequote, escapechar, errors, storage_options)
-       1103             formatter=self.fmt,
-       1104         )
-    -> 1105         csv_formatter.save()
-       1106 
-       1107         if created_buffer:
-    
-
-    ~/miniconda3/envs/naturalistic37/lib/python3.7/site-packages/pandas/io/formats/csvs.py in save(self)
-        241             errors=self.errors,
-        242             compression=self.compression,
-    --> 243             storage_options=self.storage_options,
-        244         ) as handles:
-        245 
-    
-
-    ~/miniconda3/envs/naturalistic37/lib/python3.7/site-packages/pandas/io/common.py in get_handle(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)
-        705                 encoding=ioargs.encoding,
-        706                 errors=errors,
-    --> 707                 newline="",
-        708             )
-        709         else:
-    
-
-    FileNotFoundError: [Errno 2] No such file or directory: '/Users/naeun-oh/Sherlock/fmriprep/sub-13/func/sub-13_Part1_Average_ROI_n50.csv'
-
-
-```python
-# Get Cropped & Denoised CSV Files
-result2 = ds.get(glob.glob(os.path.join(data_dir, 'fmriprep', '*', 'func', f'*Average_ROI*csv')))
-```
-
-```python
-# ROI mask : 
-# download the k=50 whole brain meta-analytic parcellation of the neurosynth database (de la Vega, 2016) from neurovault
-mask = Brain_Data('http://neurovault.org/media/images/2099/Neurosynth%20Parcellation_0.nii.gz')
-mask_x = expand_mask(mask)
-
-mask.plot()
-```
-
-```python
-# Load the csv files for each participant
-sub_list = [os.path.basename(x).split('_')[0] for x in glob.glob(os.path.join(data_dir, 'fmriprep', '*', 'func', '*Part1*csv'))]
-sub_list.sort()
-
-sub_timeseries = {}
-for sub in sub_list:
-    part1 = pd.read_csv(os.path.join(data_dir, 'fmriprep', sub, 'func', f'{sub}_Part1_Average_ROI_n50.csv'))
-    part2 = pd.read_csv(os.path.join(data_dir, 'fmriprep', sub, 'func', f'{sub}_Part2_Average_ROI_n50.csv'))
-    sub_data = part1.append(part2)
-    sub_data.reset_index(inplace=True, drop=True)
-    sub_timeseries[sub] = sub_data
-```
-
-```python
-# ISC analyses on a single ROI
-roi = 32
-
-mask_x[roi].plot()
-
-def get_subject_roi(data, roi):
-    sub_rois = {}
-    for sub in data:
-        sub_rois[sub] = data[sub].iloc[:, roi]
-    return pd.DataFrame(sub_rois)
-
-sub_rois = get_subject_roi(sub_timeseries, roi)
-sub_rois.head()
-```
-
-```python
-# Circle Shift Randomization
-sub = 'sub-02'
-sampling_freq = .5
-
-f,a = plt.subplots(nrows=2, ncols=2, figsize=(15, 5))
-a[0,0].plot(sub_rois[sub], linewidth=2)
-a[0,0].set_ylabel('Avg Activity', fontsize=16)
-a[0,1].set_xlabel('Time (TR)', fontsize=18)
-a[0,0].set_title('Observed Data', fontsize=16)
-
-fft_data = fft(sub_rois[sub])
-freq = fftfreq(len(fft_data), 1/sampling_freq)
-n_freq = int(np.floor(len(fft_data)/2))
-a[0,1].plot(freq[:n_freq], np.abs(fft_data)[:n_freq], linewidth=2)
-a[0,1].set_xlabel('Frequency (Hz)', fontsize=18)
-a[0,1].set_ylabel('Amplitude', fontsize=18)
-a[0,1].set_title('Power Spectrum', fontsize=18)
-
-circle_shift_data = circle_shift(sub_rois[sub])
-a[1,0].plot(circle_shift_data, linewidth=2, color='red')
-a[1,0].set_ylabel('Avg Activity', fontsize=16)
-a[1,0].set_xlabel('Time (TR)', fontsize=16)
-a[1,0].set_title('Circle Shifted Data', fontsize=16)
-
-fft_circle = fft(circle_shift_data)
-a[1,1].plot(freq[:n_freq], np.abs(fft_circle)[:n_freq], linewidth=2, color='red')
-a[1,1].set_xlabel('Frequency (Hz)', fontsize=18)
-a[1,1].set_ylabel('Amplitude', fontsize=18)
-a[1,1].set_title('Circle Shifted Power Spectrum', fontsize=18)
-
-plt.tight_layout()
-```
-
-```python
-stats_circle = isc(sub_rois, method='circle_shift', n_bootstraps=5000, return_bootstraps=True)
-
-print(f"ISC: {stats_circle['isc']:.02}, p = {stats_circle['p']:.03}")
-```
-
-```python
-# Phase Randomization
 ```
