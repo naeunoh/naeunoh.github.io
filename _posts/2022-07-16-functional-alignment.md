@@ -17,6 +17,7 @@ One way is applying a small amount of Gaussian smoothing to mitigate small misal
 Another newly developing approach lead by Jim Haxby and Peter Ramadge projects subjects into common space based on how voxels respond to stimuli or are connected to other voxels. This is called functional alignment or hyperalignment.
 
 The basic idea behind hyperalignment is to...
+
 (1) Treat cortical patterns as vectors corresponding to locations in a high dimensional space, where each axis reflects a measurement of that pattern (e.g. voxel activity). 
 
 **Note:** <a href="https://youtu.be/fNk_zzaMoSs">3brown1blue video</a> on vectors might help understand the general concept.

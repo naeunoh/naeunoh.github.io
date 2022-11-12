@@ -7,18 +7,7 @@ importance: 3
 category: work
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
-
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
-
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+Social isolation is a critical factor that impacts our mental and physical health in late-life. A specific instance of social isolation is the experience of being ignored or unnoticed by others, namely social exclusion. As the brain is the key organ for forming and maintaining salutary connections with others, understanding the brain mechanisms of social exclusion is important for understanding psychological processes that would complement the existing self-report measures. In addition, examining the relationship between the neural signature response of social exclusion and loneliness outcome can provide insight into the social cognitive aspect of loneliness. This study aims to identify a neural pattern signature of social exclusion in older adults, using multivariate pattern analysis of neural activations during a Cyberball task, and to verify loneliness-related individual differences in the signature. A predictive model was developed to distinguish between a social exclusion and inclusion condition, using a widely distributed neural activation pattern of 88 older adults. The fMRI pattern classifier distinguished social exclusion and inclusion with an accuracy of 0.632 and AUC of 0.693. Voxel-level and region-level feature importance analysis demonstrated that areas contributing most to the prediction are the bilateral inferior parietal lobe, dorsomedial prefrontal cortex, precuneus, amygdala, and the ventral striatum. In relation to individual differences in loneliness, those who perceived more loneliness showed higher neural signature responses during social exclusion. These findings demonstrate that the neural signature of social exclusion is characterized by distributed networks of functional regions, especially the mentalizing and amygdala networks, and that older adults who are lonely may be more sensitive to being socially excluded.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
