@@ -21,41 +21,17 @@ The tutorials are based on <a href="https://naturalistic-data.org">the Naturalis
 I have reorganized and re-explained the tutorials to make it more comprehensive, personally. :)
 These methods correspond to the questions asked in the various stages of naturalistic data analysis. This only suggests that these methods can be used in these steps of naturalistic data analysis and their usage is not limited to the field of naturalistic tasks. In fact, they are commonly used in other types of tasks including block or event design controlled tasks, multivariate analyses, and Bayesian models.
 
-Question 1. How are stimuli defined in naturalistic tasks?
-1-1. Use the reliability of neural responses : Intersubject Correlation
-1-2. Minimize individual variation with functional alignment 
-1-3. Define stimuli using automated annotations
-1-4. Define stimuli using natural language processing
-Question 2. How does the brain segment information from experiences? Hidden Markov Model
-Question 3. How do networks of brain regions dynamically reconfigure as thoughts and experiences change over time? Hidden Semi-Markov Model
-Question 4. How do networks of brain regions (FC) interact with other networks? Dynamic Connectivity
-Question 5. How do we visualize complex high-dimensional data? embedding with Hypertools
-
-{% raw  %}
-{% highlight c++ linenos %}  <br/> code code code <br/> {% endhighlight %}
-{% endraw %}
-
-The keyword `linenos` triggers display of line numbers.
-Produces something like this:
-
-{% highlight c++ linenos %}
-
-int main(int argc, char const \*argv[])
-{
-    string myString;
-
-    cout << "input a string: ";
-    getline(cin, myString);
-    int length = myString.length();
-
-    char charArray = new char * [length];
-
-    charArray = myString;
-    for(int i = 0; i < length; ++i){
-        cout << charArray[i] << " ";
-    }
-
-    return 0;
-}
-
-{% endhighlight %}
+Research Questions for Naturalistic Tasks
+<ol>
+    <li>How are stimuli defined in naturalistic tasks?</li>
+    <ul>
+        <li>Use the reliability of neural responses : Intersubject Correlation</li>
+        <li>Minimize individual variation with functional alignment</li>
+        <li>Define stimuli using automated annotations</li>
+        <li>Define stimuli using natural language processing</li>
+    </ul>
+    <li>How does the brain segment information from experiences? Hidden Markov Model</li>
+    <li>How do networks of brain regions dynamically reconfigure as thoughts and experiences change over time? Hidden Semi-Markov Model</li>
+    <li>How do networks of brain regions (FC) interact with other networks? Dynamic Connectivity</li>
+    <li> How do we visualize complex high-dimensional data? Embedding with Hypertools</li>
+</ol>
