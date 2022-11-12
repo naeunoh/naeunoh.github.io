@@ -23,13 +23,14 @@ These methods correspond to the questions asked in the various stages of natural
 
 Research Questions for Naturalistic Tasks
 <ol>
-    <li>How are stimuli defined in naturalistic tasks?</li>
-    <ul>
-        <li>Use the reliability of neural responses : Intersubject Correlation</li>
-        <li>Minimize individual variation with functional alignment</li>
-        <li>Define stimuli using automated annotations</li>
-        <li>Define stimuli using natural language processing</li>
-    </ul>
+    <li>How are stimuli defined in naturalistic tasks?
+        <ol>
+            <li>Use the reliability of neural responses : Intersubject Correlation</li>
+            <li>Minimize individual variation with functional alignment</li>
+            <li>Define stimuli using automated annotations</li>
+            <li>Define stimuli using natural language processing</li>
+        </ol>
+    </li>
     <li>How does the brain segment information from experiences? Hidden Markov Model</li>
     <li>How do networks of brain regions dynamically reconfigure as thoughts and experiences change over time? Hidden Semi-Markov Model</li>
     <li>How do networks of brain regions (FC) interact with other networks? Dynamic Connectivity</li>
