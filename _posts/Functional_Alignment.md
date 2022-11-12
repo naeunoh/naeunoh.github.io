@@ -1,7 +1,10 @@
 ---
-layout: page
-title: Functional Alignment
-permalink: /Functional_Alignment
+layout: post
+title: Functional Alignment Notebook
+date: 2022-07-16 20:09:00
+description: naturalistic data analysis
+tags: neuroimaging psychology analysis-methods
+categories: naturalistic data analysis
 ---
 
 # Functional Alignment
