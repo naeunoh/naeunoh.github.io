@@ -20,7 +20,7 @@ The basic idea behind hyperalignment is to...
 
 (1) Treat cortical patterns as vectors corresponding to locations in a high dimensional space, where each axis reflects a measurement of that pattern (e.g. voxel activity). 
 
-**Note:** <a href="https://youtu.be/fNk_zzaMoSs">3brown1blue video</a> on vectors might help understand the general concept.
+**Note:** <a href="https://youtu.be/fNk_zzaMoSs">3blue1brown video on vectors</a> might help understand the general concept.
 
 Rather than treating cortical functions in a 1D (average roi activity), 2D (cortical sheet), or 3D physical space, HA models information as being embedded in an n-D space, where n reflects the number of measurements (e.g. voxels). Simply put, a cortical pattern of a timepoint t (e.g. conditions, stimuli, timepoints) is vectorized or flattened into a vector and then expressed as a location point/position in the n-dimensional space where each axis is a voxel. 
 
