@@ -2,7 +2,7 @@
 layout: post
 title: Neuroimaging - Naturalistic Data Analysis
 date: 2022-07-15 15:09:00
-description: naturalistic data analysis
+description: intro to naturalistic methods
 tags: neuroimaging psychology analysis-methods
 categories: neuroimaging
 ---
@@ -21,12 +21,12 @@ The tutorials are based on <a href="https://naturalistic-data.org">the Naturalis
 I have reorganized and re-explained the tutorials to make it more comprehensive, personally. :)
 These methods correspond to the questions asked in the various stages of naturalistic data analysis. This only suggests that these methods can be used in these steps of naturalistic data analysis and their usage is not limited to the field of naturalistic tasks. In fact, they are commonly used in other types of tasks including block or event design controlled tasks, multivariate analyses, and Bayesian models.
 
-Research Questions for Naturalistic Tasks
+<strong>Research Questions for Naturalistic Tasks</strong>
 <ol>
     <li>How are stimuli defined in naturalistic tasks?
         <ol>
             <li>Use the reliability of neural responses : Intersubject Correlation</li>
-            <li>Minimize individual variation with functional alignment</li>
+                <li>Minimize individual variation with functional alignment</li>
             <li>Define stimuli using automated annotations</li>
             <li>Define stimuli using natural language processing</li>
         </ol>

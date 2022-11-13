@@ -2,7 +2,7 @@
 layout: post
 title: Functional Alignment
 date: 2022-07-16 15:09:00
-description: naturalistic data analysis
+description: minimize individual variation
 tags: neuroimaging psychology analysis-methods
 categories: naturalistic data analysis
 ---
