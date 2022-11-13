@@ -8,13 +8,13 @@ categories: naturalistic data analysis
 ---
 
 
-Generally, neuroimaging studies implicitly assumes that each person’s brain processes information in the same way as other people’s brains. However, it is a known fact that there is a wide variation in individual neuroanatomy. 
+Generally, neuroimaging studies implicitly assume that each person’s brain processes information in the same way as other people’s brains. However, it is a known fact that there is a wide variation in individual neuroanatomy. 
 
 Thus, to identify the common brain processes, we must normalize each participant into a common stereotactic space. This would minimize the individual variation that we are not interested in.
 
 One way is applying a small amount of Gaussian smoothing to mitigate small misalignments and increase voxel signal to noise ratios (SNR). This method is effective when performing mass univariate testing but problematic when using multivariate techniques that assume strong alignment of features (e.g. voxels) across participants.
 
-Another newly developing approach lead by Jim Haxby and Peter Ramadge projects subjects into common space based on how voxels respond to stimuli or are connected to other voxels. This is called functional alignment or hyperalignment.
+Another newly developing approach lead by Jim Haxby and Peter Ramadge projects subjects into common space based on how voxels respond to stimuli or are connected to other voxels. This is called <strong>functional alignment or hyperalignment</strong>.
 
 The basic idea behind hyperalignment is to...
 
