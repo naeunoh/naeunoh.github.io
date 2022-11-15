@@ -4,7 +4,7 @@ title: Functional Alignment Notebook
 date: 2022-07-16 20:09:00
 description: tutorial for functional alignment
 tags: neuroimaging psychology analysis-methods
-categories: naturalistic data analysis
+categories: naturalistic-data-analysis
 ---
 
 # Functional Alignment

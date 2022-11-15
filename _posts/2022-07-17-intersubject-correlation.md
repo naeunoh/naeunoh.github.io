@@ -4,7 +4,7 @@ title: Intersubject Correlation
 date: 2022-07-17 15:09:00
 description: synchrony as reliability of brain activity
 tags: neuroimaging psychology analysis-methods
-categories: naturalistic data analysis
+categories: naturalistic-data-analysis
 ---
 
 Synchrony of brain activity is associated with shared psychological perspectives toward a stimulus, friendship, and psychiatric conditions. <strong>Intersubject Correlation (ISC)</strong> (Hasson et al., 2004) calculates linear correlations between participants (pairwise or similarity to average) and derives summary statistics (overall level of synchrony) from these correlations to measure the level of similarity of brain activity. 

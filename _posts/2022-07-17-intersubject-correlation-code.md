@@ -3,7 +3,7 @@ layout: post
 title: Intersubject Correlation Notebook
 description: tutorial for intersubject correlation
 tags: neuroimaging psychology analysis-methods
-categories: naturalistic data analysis
+categories: naturalistic-data-analysis
 ---
 
 ```python
