@@ -19,4 +19,4 @@ I am a researcher in social affective psychology and neuroscience. My interests 
 
 Check out my blog for tutorials I've used and organized to study, behind-the-scenes of my work in graduate school, and personal thoughts on psychology research and interventions.
 
-In projects, you can find detailed information on all the projects I've done so far.
+In <a name=projects>projects</a>, you can find detailed information on all the projects I've done so far.
