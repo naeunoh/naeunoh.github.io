@@ -17,6 +17,6 @@ social: true  # includes social icons at the bottom of the page
 
 I am a researcher in social affective psychology and neuroscience. My interests are in the topics of emotions, social interactions, and dynamic perceptions of the world.
 
-Check out my [blog](/blog]) for tutorials I've used and organized to study, behind-the-scenes of my work in graduate school, and personal thoughts on psychology research and interventions.
+Check out my [blog](https://naeunoh.github.io/blog/]) for tutorials I've used and organized to study, behind-the-scenes of my work in graduate school, and personal thoughts on psychology research and interventions.
 
 In [projects](/projects), you can find detailed information on all the projects I've done so far.
