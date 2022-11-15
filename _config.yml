@@ -59,7 +59,7 @@ gitlab_username: # your GitLab user name
 twitter_username: NaeunOh5 # your Twitter handle
 linkedin_username: # your LinkedIn user name
 scholar_userid: 8gk3thcAAAAJ # your Google Scholar ID
-orcid_id: # your ORCID ID
+orcid_id: 0000-0001-5504-1086 # your ORCID ID
 medium_username: # your Medium username
 quora_username: # your Quora username
 publons_id: # your ID on Publons
@@ -85,7 +85,7 @@ panelbear_analytics:  # panelbear analytics site ID (format: XXXXXXXXX)
 
 blog_name: Naeun-Oh  # your blog must have a name for it to show up in the nav bar
 blog_description: some thoughts on the mind and the brain
-permalink: /blog/:year/:title/
+permalink: /blog/
 
 # Pagination
 pagination:
