@@ -482,7 +482,7 @@ Here, FDR is more conservative than bonferroni (try for yourself!).
 view_img_on_surf(threshold(isc_r_brain, isc_p_brain, thr=.001).to_nifti())
 #view_img_on_surf(threshold(isc_r_brain, isc_p_brain, thr=fdr(isc_p_brain.data)).to_nifti())
 ```
-<iframe src="/assets/surface_view.html" height="300px" width="100%" style="border:none;"></iframe>
+<iframe src="/assets/surface_view.html" width="100%" style="border:none;"></iframe>
 
 ## Intersubject Functional Connectivity
 We demonstrate how to perform ISFC using the averaging method. We iterate over each subject and compute the cross-correlation between each of the target subject's ROIs with the average ROI response of the other subjects. This yields a separate ROI x ROI ISFC matrix for each subject. We use nltools.stats.isfc() but check out the Brainiak implementation for a faster and more feature rich option. I will do both :)
