@@ -10,12 +10,12 @@ categories: naturalistic-data-analysis
 Synchrony of brain activity is associated with shared psychological perspectives toward a stimulus, friendship, and psychiatric conditions. **Intersubject Correlation (ISC)** (Hasson et al., 2004) calculates linear correlations between participants (pairwise or similarity to average) and derives summary statistics (overall level of synchrony) from these correlations to measure the level of similarity of brain activity. 
 
 The brain activity measured with fMRI during naturalistic stimulation conditions (but also applies to controlled tasks or resting-state, honestly) can be thought to consist of four main sources : 
-><ol>
->    <li> Stimulus-driven brain activity that is shared by most participants</li>
->    <li> Individual/idiosyncratic activity elicited by the stimulus</li>
->    <li> Intrinsic activity that is not time-locked to the stimulus</li>
->    <li> Noise from various sources</li>
-></ol>
+
+>    1. Stimulus-driven brain activity that is shared by most participants
+>    2. Individual/idiosyncratic activity elicited by the stimulus
+>    3. Intrinsic activity that is not time-locked to the stimulus
+>    4. Noise from various sources
+
 
 (1) The idea behind ISC is to identify brain activity that is shared by many. Thus, this method evaluates how much of an individual’s brain activity is explained by this shared component.
 
@@ -24,7 +24,7 @@ The brain activity measured with fMRI during naturalistic stimulation conditions
 (3) The third category of activity is not readily detected by synchrony approaches, but in some innovative designs (Chen et al., 2017), it is still possible to extract shared brain activity patterns by temporally reorganizing the data (e.g. during verbal recall of previously experienced stimuli) even when the original experiences of participants were out of sync.    
 
 **Thoughts:** How is (3) different from resting-state? 
-Resting-state involves no external synchronizing factors apart from the repeating noise of the scanner gradients (and noise is not of our interest) and thus is ideal for demonstrating the true null distribution of no synchrony. I believe resting state involves both 3 and 4.
+Resting-state involves no external synchronizing factors apart from the repeating noise of the scanner gradients (and noise is not of our interest) and thus is ideal for demonstrating the true null distribution of no synchrony. Thus, resting state would involve both 3 and 4.
 
 
 
@@ -35,7 +35,7 @@ ISC are mostly calculated locally within each voxel or region, but the method ha
 
 The first step of ISCs is *calculating individual synchrony* using one of two main approaches. First, one calculates pairwise correlations between all participant pairs to build a full intersubject correlation matrix. The second approach uses the average activity timecourse of other participants as a model for each individual left out participant. This produces individual, rather than pairwise, spatial maps of similarity (how typical one’s brain activation is) in the same way first level results of a traditional general linear model analysis would. However, some individual variability is lost with the average similarity approach and ISC values are typically higher than pairwise matrices.
 
-The second step is to summarize the overall level of synchrony across participants. One can use the mean correlation. To make the correlation coefficients more normally distributed across the range of values, the Fisher’s Z transformation (inverse hyperbolic tangent) is applied before computing the mean. This transformation mainly affects the higher absolute correlation values, thus stretching the correlation coefficient 1 to infinity. However, as pairwise ISC values are typically not that high, the effects of this transformation are relatively small reaching less than 10% at the higher end of the scale of r=0.5. Recently, it has been suggested that computing the median, especially when using the pairwise approach, provides a more accurate summary of the correlation values (Chen et al., 2016).
+The second step is to *summarize the overall level of synchrony across participants*. One can use the mean correlation. To make the correlation coefficients more normally distributed across the range of values, the Fisher’s Z transformation (inverse hyperbolic tangent) is applied before computing the mean. This transformation mainly affects the higher absolute correlation values, thus stretching the correlation coefficient 1 to infinity. However, as pairwise ISC values are typically not that high, the effects of this transformation are relatively small reaching less than 10% at the higher end of the scale of r=0.5. Recently, it has been suggested that computing the median, especially when using the pairwise approach, provides a more accurate summary of the correlation values (Chen et al., 2016).
 
 
 
@@ -44,7 +44,7 @@ The second step is to summarize the overall level of synchrony across participan
 
 Now, we will perform hypothesis tests with ISC. Performing hypothesis tests that account for the false positive rate can be tricky with ISC because of the dependence between the pairwise correlation values and the inflated number of variables in the pairwise correlation matrices. Although there have been proposals to use mixed-effects models for a parametric solution (Chen et al., 2017), *non-parametric statistics* are recommended. 
 
-The first non-parametric approach is permutation or randomization achieved by creating surrogate (artificial, fake) data and repeating the same analysis many times to build an empirical null distribution (e.g. 5-10k iterations). The null distribution represents the condition where any correlations in the data arise by chance (like a resting state condition). However, to meet the exchangeability assumption of permutation, it is important to consider the temporal dependence structure (because our data is sequential). Surrogate data can be created by circularly shifting the timecourses of the participants (*circular shifting*) or by scrambling the phases of the Fourier transform of the signals and transforming these signals back to the time domain (*phase randomization*). Various blockwise scrambling techniques and autoregressive models have been proposed to create artificial data for statistical inference. When properly designed, these methods can retain important characteristics of the original signal (e.g. frequency content and autocorrelation) while removing temporal synchrony in the data. 
+The first non-parametric approach is *permutation* or randomization achieved by creating surrogate (artificial, fake) data and repeating the same analysis many times to build an empirical null distribution (e.g. 5-10k iterations). The null distribution represents the condition where any correlations in the data arise by chance (like a resting state condition). However, to meet the exchangeability assumption of permutation, it is important to consider the temporal dependence structure (because our data is sequential). Surrogate data can be created by circularly shifting the timecourses of the participants (circular shifting) or by scrambling the phases of the Fourier transform of the signals and transforming these signals back to the time domain (phase randomization). Various blockwise scrambling techniques and autoregressive models have been proposed to create artificial data for statistical inference. When properly designed, these methods can retain important characteristics of the original signal (e.g. frequency content and autocorrelation) while removing temporal synchrony in the data. 
 
 The second non-parametric approach employs a *subject-wise bootstrap* on the pairwise similarity matrices. Participants are randomly sampled with replacement and then a new similarity matrix is computed with these resampled participants. Due to replacement sampling, sometimes the same subjects are sampled multiple times which introduces correlation values of 1 off the diagonal. Thus, summarizing the ISC with median can minimize the impact of these outliers. These values are then shifted by the real summary statistics to produce an approximately zero-centered distribution? Note that Brainiak and nltools convert these values to NaNs by default. 
 
@@ -56,6 +56,8 @@ The second non-parametric approach employs a *subject-wise bootstrap* on the pai
 To address how brain regions coactivate due to naturalistic stimulation, ISC was recently extended to **intersubject functional connectivity (ISFC)** to measure brain connectivity between subjects (Simony et al., 2016). This method can identify connections that are activated consistently between participants by the stimulus while disregarding the intrinsic fluctuations as they are not time-locked between individuals. (This is very effective as FC fluctuate a lot) This can also illustrate how distant brain regions cooperate to make sense of the incoming stimulus streams. However, it can also highlight pairs of regions that show similar temporal activity patterns that are driven by the external stimulus (just happen to activate at the same time) rather than neural connections between the regions (causality in the brain), which should be taken into account in the interpretation. This is an intrinsic problem of FC due to the way connectivity is calculated (correlation).
 
 
+![isfc]({{ site.baseurl }}/assets/img/isc/isfc-figure-Simony2016.png){: width="100%" }
+<div align="center">Simony et al. (2016)</div>
 
 ### Dynamic ISC
 
