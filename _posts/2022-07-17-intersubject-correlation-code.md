@@ -75,7 +75,7 @@ mask_x = expand_mask(mask)
 mask.plot()
 ```
 
-![png]({{ site.baseurl }}/assets/img/Intersubject%20Correlation/Intersubject%20Correlation_5_0.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/isc/Intersubject%20Correlation_5_0.png){: width="100%" }
 
 ```python
 # You can practice extracting average ROI data but it's been done for you already
@@ -259,7 +259,7 @@ sub_rois.head()
 </div>
 
 
-![png]({{ site.baseurl }}/assets/img/Intersubject%20Correlation/Intersubject%20Correlation_8_1.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/isc/Intersubject%20Correlation_8_1.png){: width="100%" }
 
 ## Hypothesis Testing on ISC
 To perform ISC we will use nltools.stats.isc()
@@ -303,7 +303,7 @@ a[1,1].set_title('Circle Shifted Power Spectrum', fontsize=18)
 plt.tight_layout()
 ```
 
-![png]({{ site.baseurl }}/assets/img/Intersubject%20Correlation/Intersubject%20Correlation_11_0.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/isc/Intersubject%20Correlation_11_0.png){: width="100%" }
 
 ```python
 # Compute ISC of vmPFC roi with 5000 permutations.
@@ -353,7 +353,7 @@ a[1,1].set_title('Phase Randomized Power Spectrum', fontsize=18)
 plt.tight_layout()
 ```
 
-![png]({{ site.baseurl }}/assets/img/Intersubject%20Correlation/Intersubject%20Correlation_14_0.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/isc/Intersubject%20Correlation_14_0.png){: width="100%" }
 
 ```python
 # Compute ISC of vmPFC roi with 5000 permutations.
@@ -406,7 +406,7 @@ a[1].set_title('Bootstrapped Pairwise Similarity', fontsize=16)
 
 
 
-![png]({{ site.baseurl }}/assets/img/Intersubject%20Correlation/Intersubject%20Correlation_19_1.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/isc/Intersubject%20Correlation_19_1.png){: width="100%" }
 
 ```python
 stats_boot = isc(sub_rois, method='bootstrap', n_bootstraps=5000, return_bootstraps=True)
@@ -446,7 +446,7 @@ plt.axvline(stats_phase['ci'][1], linestyle='--', color='green')
 
 
 
-![png]({{ site.baseurl }}/assets/img/Intersubject%20Correlation/Intersubject%20Correlation_22_1.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/isc/Intersubject%20Correlation_22_1.png){: width="100%" }
 
 Notice that the circle shift and phase randomization methods produce highly similar null distributions and confidence intervals.
 , while the bootstrap method has a wider and less symmetric distribution with the current number of iterations. 
@@ -470,7 +470,7 @@ isc_r_brain, isc_p_brain = roi_to_brain(pd.Series(isc_r), mask_x), roi_to_brain(
 isc_r_brain.plot(cmap='RdBu_r')
 ```
 
-![png]({{ site.baseurl }}/assets/img/Intersubject%20Correlation/Intersubject%20Correlation_26_0.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/isc/Intersubject%20Correlation_26_0.png){: width="100%" }
 
 ```python
 view_img(isc_r_brain.to_nifti())
@@ -511,7 +511,7 @@ plt.ylabel('ROI', fontsize=18)
 
 
 
-![png]({{ site.baseurl }}/assets/img/Intersubject%20Correlation/Intersubject%20Correlation_32_1.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/isc/Intersubject%20Correlation_32_1.png){: width="100%" }
 
 We can threshold the ISFC matrix by running a one-sample t-test on each ISFC value and correcting for multiple comparisons using FDR.
 We can convert this into an adjacency matrix, by binarizing the continuous t-values. In this example, we are interested in exploring which regions have a positive ISFC. Thus, we use an arbitrary fdr threshold (q<0.000001) in this example to create a sparse adjacency matrix.
@@ -538,7 +538,7 @@ plt.ylabel('ROI', fontsize=18)
 
 
 
-![png]({{ site.baseurl }}/assets/img/Intersubject%20Correlation/Intersubject%20Correlation_34_1.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/isc/Intersubject%20Correlation_34_1.png){: width="100%" }
 
 We can now convert this adjacency matrix into a graph and can visualize which regions are functionally connected to the most other regions.
 
@@ -564,7 +564,7 @@ def plot_network(data):
 plot_network(Adjacency(thresholded_t_pos, matrix_type='similarity'))
 ```
 
-![png]({{ site.baseurl }}/assets/img/Intersubject%20Correlation/Intersubject%20Correlation_36_0.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/isc/Intersubject%20Correlation_36_0.png){: width="100%" }
 
 To interpret this, let's project the number of connections (i.e. degree) with each node back into brain space.
 
@@ -574,7 +574,7 @@ brain_degree = roi_to_brain(degree, mask_x)
 brain_degree.plot()
 ```
 
-![png]({{ site.baseurl }}/assets/img/Intersubject%20Correlation/Intersubject%20Correlation_38_0.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/isc/Intersubject%20Correlation_38_0.png){: width="100%" }
 
 ```python
 view_img_on_surf(brain_degree.to_nifti())
@@ -665,7 +665,7 @@ phase_synchrony_brain = roi_to_brain(pd.DataFrame(synchrony).mean(), mask_x)
 phase_synchrony_brain.plot(cmap='RdBu_r')
 ```
 
-![png]({{ site.baseurl }}/assets/img/Intersubject%20Correlation/Intersubject%20Correlation_45_0.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/isc/Intersubject%20Correlation_45_0.png){: width="100%" }
 
 ```python
 # Create an interactive surface rendering
@@ -701,9 +701,9 @@ a.set_xlabel('Time (TRs)', fontsize=18)
 plt.tight_layout()
 ```
 
-![png]({{ site.baseurl }}/assets/img/Intersubject%20Correlation/Intersubject%20Correlation_49_0.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/isc/Intersubject%20Correlation_49_0.png){: width="100%" }
 
-![png]({{ site.baseurl }}/assets/img/Intersubject%20Correlation/Intersubject%20Correlation_49_1.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/isc/Intersubject%20Correlation_49_1.png){: width="100%" }
 
 Hypothesis test
 
@@ -738,7 +738,7 @@ plt.legend(['ISPS Values', 'p < 0.05', 'ISPS = 0.43'])
 
 
 
-![png]({{ site.baseurl }}/assets/img/Intersubject%20Correlation/Intersubject%20Correlation_51_1.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/isc/Intersubject%20Correlation_51_1.png){: width="100%" }
 
 For N=16, an ISPS value of 0.43 corresponds to a significance value of approximately p<0.05. This number will decrease as the number of participants increases and approaches the central limit theorem like any significance test.
 
@@ -756,7 +756,7 @@ for i,cutoff in enumerate(frequencies):
     phase_synchrony_brain.plot(cmap='RdBu_r', vmax=1, axes=a[i], threshold=.43, title=f"Frequency cutoff: {cutoff[0]} - {cutoff[1]}")
 ```
 
-![png]({{ site.baseurl }}/assets/img/Intersubject%20Correlation/Intersubject%20Correlation_53_0.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/isc/Intersubject%20Correlation_53_0.png){: width="100%" }
 
 ISPS Functional Connectivity Analysis.
 
@@ -784,14 +784,14 @@ a[1].set_title('Thresholded ISPS Functional Connectivity Matrix', fontsize=18)
 plt.tight_layout()
 ```
 
-![png]({{ site.baseurl }}/assets/img/Intersubject%20Correlation/Intersubject%20Correlation_55_0.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/isc/Intersubject%20Correlation_55_0.png){: width="100%" }
 
 ```python
 # Create a graph of the thresholded edges using the networkx package
 plot_network(sync.threshold(upper = .3, binarize=True))
 ```
 
-![png]({{ site.baseurl }}/assets/img/Intersubject%20Correlation/Intersubject%20Correlation_56_0.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/isc/Intersubject%20Correlation_56_0.png){: width="100%" }
 
 ```python
 # Calculate the degree for each node and project back into brain space
@@ -800,4 +800,4 @@ brain_degree = roi_to_brain(degree, mask_x)
 brain_degree.plot(cmap='RdBu_r')
 ```
 
-![png]({{ site.baseurl }}/assets/img/Intersubject%20Correlation/Intersubject%20Correlation_57_0.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/isc/Intersubject%20Correlation_57_0.png){: width="100%" }

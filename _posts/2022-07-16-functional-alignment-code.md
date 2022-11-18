@@ -85,7 +85,7 @@ mask_x = expand_mask(mask)
 mask.plot()
 ```
 
-![png]({{ site.baseurl }}/assets/img/Functional%20Alignment/Functional%20Alignment_6_0.png){: width="100%"}
+![png]({{ site.baseurl }}/assets/img/fa/Functional%20Alignment_6_0.png){: width="100%"}
 
 As an example, let's extract voxel activity within the early visual cortex (i.e. ROI 4) from the second half of Sherlock (i.e. Part2) using hdf5 files.
 Brain_Data class of nltools loads data.
@@ -125,7 +125,7 @@ roi_mask.plot()
     sub-03
     sub-04
 
-![png]({{ site.baseurl }}/assets/img/Functional%20Alignment/Functional%20Alignment_8_1.png){: width="100%"}
+![png]({{ site.baseurl }}/assets/img/fa/Functional%20Alignment_8_1.png){: width="100%"}
 
 ```python
 # Hyperalignment using procrustes transform
@@ -179,7 +179,7 @@ a[1].set_title(f"Aligned Voxel ISC: r={Adjacency(voxel_aligned.corr(), matrix_ty
 
 
 
-![png]({{ site.baseurl }}/assets/img/Functional%20Alignment/Functional%20Alignment_11_1.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/fa/Functional%20Alignment_11_1.png){: width="100%" }
 
 The overall time course of both unaligned and aligned voxel activity is very similar.
 However, participants have an overall higher degree of similarity after hyperalignment (r=0.4) compared to the unaligned data (r=0.34).
@@ -197,7 +197,7 @@ print(f"Mean ISC: {np.mean(list(hyperalign['isc'].values())):.2}")
 
     Mean ISC: 0.36
 
-![png]({{ site.baseurl }}/assets/img/Functional%20Alignment/Functional%20Alignment_13_1.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/fa/Functional%20Alignment_13_1.png){: width="100%" }
 
 The overall ISC across voxels is pretty high, mean=0.36.
 Note that the mean ISC value is biased b/c it's not cross-validated so it's likely slightly inflated.
@@ -223,7 +223,7 @@ a[1,0].set_ylabel('Aligned Voxels', fontsize=16)
 plt.tight_layout()
 ```
 
-![png]({{ site.baseurl }}/assets/img/Functional%20Alignment/Functional%20Alignment_16_0.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/fa/Functional%20Alignment_16_0.png){: width="100%" }
 
 Are the subjects' patterns more spatially similar after alignment? With alignment, voxels are rearranged to maximize temporal synchrony. The algorithm picks a random subject and then projects every other subject into that space. This is averaged and then iteratively repeated.
 
@@ -264,7 +264,7 @@ a.set_title(f"Aligned Component ISC: r={Adjacency(component_aligned.corr(), matr
 
 
 
-![png]({{ site.baseurl }}/assets/img/Functional%20Alignment/Functional%20Alignment_20_1.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/fa/Functional%20Alignment_20_1.png){: width="100%" }
 
 ```python
 # Plot the distribution of overall ISC across all components
@@ -282,7 +282,7 @@ plt.title('Shared Response Model ISC', fontsize=18)
 
 
 
-![png]({{ site.baseurl }}/assets/img/Functional%20Alignment/Functional%20Alignment_21_1.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/fa/Functional%20Alignment_21_1.png){: width="100%" }
 
 The consequence of this lower dimensional projection is that we can no longer maintain a voxel level representation. So we are unable to generate the same figure depicting how the cortical topographies change.
 Instead, we will plot the weights that project each subject's data into a common latent time course.
@@ -310,7 +310,7 @@ for i in range(4):
         a1.set_title('Latent Timecourse', fontsize=20)
 ```
 
-![png]({{ site.baseurl }}/assets/img/Functional%20Alignment/Functional%20Alignment_23_0.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/fa/Functional%20Alignment_23_0.png){: width="100%" }
 
 ## Project New Subject Data into Common Space
 We can align new subjects into the common model without retraining the entire model.
@@ -327,9 +327,9 @@ aligned_sub_hyperalignment = new_data.align(hyperalign['common_model'], method='
 aligned_sub_hyperalignment['transformed'][0].plot()
 ```
 
-![png]({{ site.baseurl }}/assets/img/Functional%20Alignment/Functional%20Alignment_25_0.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/fa/Functional%20Alignment_25_0.png){: width="100%" }
 
-![png]({{ site.baseurl }}/assets/img/Functional%20Alignment/Functional%20Alignment_25_1.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/fa/Functional%20Alignment_25_1.png){: width="100%" }
 
 The pattern of cortical activation has now changed after projecting this subject into the common space.
 
@@ -341,7 +341,7 @@ aligned_sub_srm = new_data.standardize(method='zscore').align(srm['common_model'
 aligned_sub_srm['transformation_matrix'][0].plot()
 ```
 
-![png]({{ site.baseurl }}/assets/img/Functional%20Alignment/Functional%20Alignment_27_0.png){: width="100%" }
+![png]({{ site.baseurl }}/assets/img/fa/Functional%20Alignment_27_0.png){: width="100%" }
 
 Because the FA models were trained to maximize ISC, the ISC values are biased and will likely be inflated.
 It is important to evaluate how well the model works on independent data.
