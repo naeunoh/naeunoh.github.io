@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Intersubject Correlation Notebook
+date: 2022-07-17 15:09:00
 description: tutorial for intersubject correlation
 tags: neuroimaging psychology analysis-methods
 categories: naturalistic-data-analysis

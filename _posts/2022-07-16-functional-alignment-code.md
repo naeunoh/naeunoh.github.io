@@ -70,9 +70,13 @@ result = ds.get(glob.glob(os.path.join(data_dir, 'fmriprep', '*', 'func', f'*cro
     action summary:
       get (notneeded: 18, ok: 14)
 
+
+Hyperalignment was developed at Dartmouth College and is implemented in the PyMVPA toolbox. There is a tutorial on the PyMVPA website for how to implement different versions of hyperalignment. The Shared Response Model was developed at Princeton University and is implemented in the brainiak toolbox and I also encourage you to see their excellent tutorial.
+
 ## Reponse-based Hyperalignment
 Functional alignment is usually performed within an ROI. The original hyperalignment papers align within searchlights over the whole brain. 
 Here, we will align within regions of interest (ROI) from whole-brain functional parcellations. We will use a n=50 parcellation based on patterns of coactivation from the Neurosynth database (de la Vega et al.,2016)
+
 
 ```python
 # ROI mask
