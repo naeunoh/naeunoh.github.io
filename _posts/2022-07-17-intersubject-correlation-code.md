@@ -369,7 +369,7 @@ ISC values (median of the pairwise correlations) of the two permutation methods 
 ### Subject-wise Bootstrapping
 Third, subject-wise bootstrapping is more conservative than the previously described permutation methods and is almost an order of magnitude faster shuffling the similarity matrix compared to recomputing the pairwise similarity for the null distribution (Chen et al., 2016). 
 Bootstrapping vs Permutation
-Bootstrapping is typically used more for generating confidence intervals around an estimator, while permutation tests are used for performing hypothesis tests. However, p-values can also be computed using a bootstrap by subtracting the ISC from the null distribution and evaluating the percent of samples from the distribution that are smaller than the ISC (hall et al., 1991).
+Bootstrapping is typically used more for generating confidence intervals around an estimator, while permutation tests are used for performing hypothesis tests. However, p-values can also be computed using a bootstrap by subtracting the ISC from the null distribution and evaluating the percent of samples from the distribution that are smaller than the ISC (Hall et al., 1991).
 
 We illustrate what an example bootstrapped similarity matrix looks like.
 Due to resampling with replacement, some subjects are repeatedly resampled and there are multiple values of perfect correlations found off the diagonal. 

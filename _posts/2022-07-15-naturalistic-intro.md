@@ -17,8 +17,8 @@ However, it has recently been noticed that for relatively abstract and endogenou
 I want to note that controlled tasks have effectively identified certain "complex" processes and they also have many advantages compared to naturalistic tasks.
 
 For the upcoming posts, I will be reviewing the various analysis methods of naturalistic tasks that reflect relatively abstract and endogenous psychological processes, such as affect and social cognition.
-The tutorials are based on <a href="https://naturalistic-data.org">the Naturalistic Data Analysis tutorial</a> built by multiple researchers in the social and affective neuroscience field.
-I have reorganized and re-explained the tutorials to make it more comprehensive, personally. :)
+The tutorials are based on [the Naturalistic Data Analysis tutorial](https://naturalistic-data.org) built by multiple researchers in the social and affective neuroscience field.
+I have reorganized and re-explained the tutorials to make it more comprehensive.
 
 The methods described correspond to the questions asked in the various stages of naturalistic data analysis. Note that this only suggests that these methods can be used in these steps of naturalistic data analysis and their usage is not limited to the field of naturalistic tasks. In fact, they are commonly used in other types of tasks including block or event design controlled tasks, multivariate analyses, and Bayesian models.
 
