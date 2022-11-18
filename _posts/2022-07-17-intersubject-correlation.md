@@ -7,12 +7,14 @@ tags: neuroimaging psychology analysis-methods
 categories: naturalistic-data-analysis
 ---
 
+Contents : Intersubject Correlation, ISFC, dynamic ISC (ISPS)
+
 Synchrony of brain activity is associated with shared psychological perspectives toward a stimulus, friendship, and psychiatric conditions. **Intersubject Correlation (ISC)** (Hasson et al., 2004) calculates linear correlations between participants (pairwise or similarity to average) and derives summary statistics (overall level of synchrony) from these correlations to measure the level of similarity of brain activity. 
 
 The brain activity measured with fMRI during naturalistic stimulation conditions (but also applies to controlled tasks or resting-state, honestly) can be thought to consist of four main sources : 
 
 >    1. Stimulus-driven brain activity that is shared by most participants
->    2. Individual/idiosyncratic activity elicited by the stimulus
+>    2. Individual / Idiosyncratic activity elicited by the stimulus
 >    3. Intrinsic activity that is not time-locked to the stimulus
 >    4. Noise from various sources
 
@@ -59,6 +61,8 @@ To address how brain regions coactivate due to naturalistic stimulation, ISC was
 ![isfc]({{ site.baseurl }}/assets/img/isc/isfc-figure-Simony2016.png){: width="100%" }
 <div align="center">Simony et al. (2016)</div>
 
+
+
 ### Dynamic ISC
 
 
@@ -68,9 +72,9 @@ We want to calculate temporal variability of synchrony while limiting the effect
 
 A simple way is to calculate correlations within *sliding time windows*. This allows the estimation of synchrony during time windows when the signals are close to their mean values as the amplitude within each time window is standardized when the correlation is calculated. However, the length of the temporal window forces a trade-off between temporal accuracy and stability of the correlation coefficient calculated in that window. Very short time windows allow one to follow precisely when correlations occur, but they also yield extremely unstable correlations with extreme correlation values that change signs wildly, which can be dominated completely by (unreliable signals like) single co-occuring spikes or slopes. 
 
-Another option is to calculate the phase synchronization or phase locking of signals (*Intersubject Phase Synchrony, ISPS*). This has been used widely for electrophysiological measures such as EEG and MEG, and more recently also for fMRI (Glerean et al., 2012). Phase synchronization leverages the Hilbert transform to transform the real-valued signals into a complex valued, analytic signal, which is a generalization of the phasor notation of sinusoidal signals that are widely used in engineering applications. 
+Another option is to calculate the phase synchronization or phase locking of signals (**Intersubject Phase Synchrony, ISPS**). This has been used widely for electrophysiological measures such as EEG and MEG, and more recently also for fMRI (Glerean et al., 2012). Phase synchronization leverages the Hilbert transform to transform the real-valued signals into a complex valued, analytic signal, which is a generalization of the phasor notation of sinusoidal signals that are widely used in engineering applications. 
 
-(Whoa… what does that even mean? Let me explain.)
+(Whoa… what does that even mean? Let's look more into this.)
 
 The illustration below shows two examples of analytic signals with constant frequency and amplitude, plotted in three dimensions (real, imaginary, and time axes). We have used the cosine of the angular difference as a measure of pairwise synchrony (cosine similarity). This produces time-averaged values that are consistent with the ISCs in the regions. In contrast to a time-invariant phasor ([phase vector](https://en.wikipedia.org/wiki/Phasor)), an analytic signal has a time-varying amplitude envelope (wave) and frequency and can thus be used to track changes in synchrony over time. However, for meaningful separation of the envelope and phase of the signal, the original signal must be contained in a limited frequency band, which can be obtained through *band-pass filtering*. The smaller this frequency band is, the better the amplitude envelope is separated into a lower frequency than the phase of the signal in the pass-band. However, poorly designed filters may affect the shape of the signal considerably and even remove the signal of interest. For instance, some filters can cause non-linear phase shifts across the frequency spectrum, or an excessively tight pass-band may miss important frequencies completely.
 

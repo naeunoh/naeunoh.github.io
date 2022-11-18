@@ -22,18 +22,22 @@ I have reorganized and re-explained the tutorials to make it more comprehensive.
 
 The methods described correspond to the questions asked in the various stages of naturalistic data analysis. Note that this only suggests that these methods can be used in these steps of naturalistic data analysis and their usage is not limited to the field of naturalistic tasks. In fact, they are commonly used in other types of tasks including block or event design controlled tasks, multivariate analyses, and Bayesian models.
 
-><strong>Research Questions for Naturalistic Tasks</strong>
-><ol>
->    <li>How are stimuli defined in naturalistic tasks?
->        <ol>
->            <li>Use the reliability of neural responses : Intersubject Correlation</li>
->                <li>Minimize individual variation with functional alignment</li>
->            <li>Define stimuli using automated annotations</li>
->            <li>Define stimuli using natural language processing</li>
->        </ol>
->    </li>
->    <li>How does the brain segment information from experiences? Hidden Markov Model</li>
->    <li>How do networks of brain regions dynamically reconfigure as thoughts and experiences change over time? Hidden Semi-Markov Model</li>
->    <li>How do networks of brain regions (FC) interact with other networks? Dynamic Connectivity</li>
->    <li> How do we visualize complex high-dimensional data? Embedding with Hypertools</li>
-></ol>
+>**Research Questions for Naturalistic Tasks & Corresponding Methods**
+>
+> 1. How do we build models using naturalistic designs?
+> Indirectly model by capturing “reliable” neural responses among subjects
+>   - Minimize individual variations with Functional Alignment
+>   - Predict one’s brain activity from another : Intersubject Correlation Intersubject Functional Connectivity
+>   - Individual activity : Intersubject Representational Similarity Analysis (IS-RSA)
+>   - Dynamic ISC : Intersubject Phase Synchrony
+> Explicitly annotate features of the model
+> - Define stimuli using Automated Annotations
+> - Define stimuli using Natural Language Processing
+> 2. How does the brain segment information from experiences? 
+> Event Segmentation (Hidden Markov Model, Greedy State Boundary Search)
+> 3. How do networks of brain regions dynamically reconfigure as thoughts and experiences change over time? 
+> Hidden Semi-Markov Model
+> 4. How do networks of brain regions (FC) interact in higher order patterns
+> Dynamic Connectivity
+> 5. How do we visualize complex high-dimensional data? 
+> Embedding with Hypertools
