@@ -25,14 +25,16 @@ The methods described correspond to the questions asked in the various stages of
 >**Research Questions for Naturalistic Tasks & Corresponding Methods**
 >
 > 1. How do we build models using naturalistic designs?
+>
 > Indirectly model by capturing “reliable” neural responses among subjects
 >   - Minimize individual variations with Functional Alignment
 >   - Predict one’s brain activity from another : Intersubject Correlation Intersubject Functional Connectivity
->   - Individual activity : Intersubject Representational Similarity Analysis (IS-RSA)
->   - Dynamic ISC : Intersubject Phase Synchrony
+>   - Individual variations in brain activity : Intersubject Representational Similarity Analysis (IS-RSA)
+>   - Dynamic changes in ISC : Intersubject Phase Synchrony
+>
 > Explicitly annotate features of the model
-> - Define stimuli using Automated Annotations
-> - Define stimuli using Natural Language Processing
+>   - Define stimuli using Automated Annotations
+>   - Define stimuli using Natural Language Processing
 > 2. How does the brain segment information from experiences? 
 > Event Segmentation (Hidden Markov Model, Greedy State Boundary Search)
 > 3. How do networks of brain regions dynamically reconfigure as thoughts and experiences change over time? 
@@ -41,3 +43,17 @@ The methods described correspond to the questions asked in the various stages of
 > Dynamic Connectivity
 > 5. How do we visualize complex high-dimensional data? 
 > Embedding with Hypertools
+
+
+**Naturalistic Datasets**
+
+Here are some opensource fMRI datasets on naturalistic tasks.
+
+[Human Connectome Project 7T movie-watching data](https://www.humanconnectome.org/study/hcp-young-adult) (n = 184, four 15-minute movie-watching runs, many cognitive, affective, and clinical measures)
+
+[Child Mind Institute Health Brain Network project](http://fcon_1000.projects.nitrc.org/indi/cmi_healthy_brain_network/index.html) (n = 2,500+ and growing, two movie-watching runs [one 10-minute and one 3.5-minute], many cognitive, affective, and clinical measures)
+
+[Narratives: fMRI data for evaluating models of naturalistic language comprehension](https://openneuro.org/datasets/ds002345/versions/1.0.1)
+
+[Paranoia: fMRI data for listening to audio narratives](https://openneuro.org/datasets/ds001338/versions/1.0.0)
+
