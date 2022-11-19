@@ -475,6 +475,7 @@ isc_r_brain.plot(cmap='RdBu_r')
 ```python
 view_img(isc_r_brain.to_nifti())
 ```
+<iframe src="/assets/isc_r_brain.html" height="450px" width="100%" style="border:none;"></iframe>
 
 Now, let's threshold using bonferroni correction (p<0.001 for k=50 parcellation). Alternatively, we can threshold using false discovery rate by setting thr=fdr(isc_p_brain.data).
 Here, FDR is more conservative than bonferroni (try for yourself!).
@@ -483,7 +484,7 @@ Here, FDR is more conservative than bonferroni (try for yourself!).
 view_img_on_surf(threshold(isc_r_brain, isc_p_brain, thr=.001).to_nifti())
 #view_img_on_surf(threshold(isc_r_brain, isc_p_brain, thr=fdr(isc_p_brain.data)).to_nifti())
 ```
-<iframe src="/assets/surface_view.html" height="450px" width="100%" style="border:none;"></iframe>
+<iframe src="/assets/surface_view_isc_r_brain.html" height="450px" width="100%" style="border:none;"></iframe>
 
 ## Intersubject Functional Connectivity
 We demonstrate how to perform ISFC using the averaging method. We iterate over each subject and compute the cross-correlation between each of the target subject's ROIs with the average ROI response of the other subjects. This yields a separate ROI x ROI ISFC matrix for each subject. We use nltools.stats.isfc() but check out the Brainiak implementation for a faster and more feature rich option. I will do both :)
@@ -580,6 +581,8 @@ brain_degree.plot()
 view_img_on_surf(brain_degree.to_nifti())
 ```
 
+<iframe src="/assets/surface_view_brain_degree.html" height="450px" width="100%" style="border:none;"></iframe>
+
 ## Temporal Dynamics of Intersubject Synchrony
 This section will help you build an intuition for the core concepts behind intersubject phase synchrony (ISPS). We will begin by creating an animation of the phase angles.
 
@@ -645,10 +648,7 @@ plt.close(animation._fig)
 HTML(animation.to_jshtml())
 ```
 
-    Animation size has reached 21139735 bytes, exceeding the limit of 20971520.0. If you're sure you want a larger animation embedded, set the animation.embed_limit rc parameter to a larger value (in MB). This and further frames will be dropped.
-
-
-
+<iframe src="/assets/intersubject_phase_sync.html" width="100%" style="border:none;"></iframe>
 
 Now, let's pick a frequency band and plot the average phase synchrony over the entire 50min Sherlock viewing within each ROI from out parcellation. Let's continue using a lower bound cutoff frequency of 0.04Hz and an upper bound of 0.07Hz.
 
@@ -671,6 +671,8 @@ phase_synchrony_brain.plot(cmap='RdBu_r')
 # Create an interactive surface rendering
 view_img_on_surf(phase_synchrony_brain.to_nifti())
 ```
+
+<iframe src="/assets/surface_view_brain_sync.html" height="450px" width="100%" style="border:none;"></iframe>
 
 You can see that these results look very similar to the whole timeseries ISC apporach we used above. High overall synchrony across participants within primary auditory and visual cortices and lower overall synchrony in prefrontal and limbic regions.
 
