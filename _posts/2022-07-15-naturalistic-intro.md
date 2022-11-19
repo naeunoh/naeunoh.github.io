@@ -25,14 +25,12 @@ The methods described correspond to the questions asked in the various stages of
 >**Research Questions for Naturalistic Tasks & Corresponding Methods**
 >
 > 1. How do we build models using naturalistic designs?
->
-> Indirectly model by capturing “reliable” neural responses among subjects
+>   Indirectly model by capturing “reliable” neural responses among subjects
 >   - Minimize individual variations with Functional Alignment
 >   - Predict one’s brain activity from another : Intersubject Correlation Intersubject Functional Connectivity
 >   - Individual variations in brain activity : Intersubject Representational Similarity Analysis (IS-RSA)
 >   - Dynamic changes in ISC : Intersubject Phase Synchrony
->
-> Explicitly annotate features of the model
+>   Explicitly annotate features of the model
 >   - Define stimuli using Automated Annotations
 >   - Define stimuli using Natural Language Processing
 > 2. How does the brain segment information from experiences? 
