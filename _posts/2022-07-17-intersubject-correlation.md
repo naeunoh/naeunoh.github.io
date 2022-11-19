@@ -29,11 +29,11 @@ The brain activity measured with fMRI during naturalistic stimulation conditions
 Resting-state involves no external synchronizing factors apart from the repeating noise of the scanner gradients (and noise is not of our interest) and thus is ideal for demonstrating the true null distribution of no synchrony. Thus, resting state would involve both 3 and 4.
 
 
+ISC are mostly calculated locally within each voxel or region, but in theory, we could calculate brain similarity based on any type of information we can extract from single subjects’ neuroimaging data. For example, we could use functional connectivity (Glerean et al., 2016), or compare subjects’ temporal trajectories over the course of a stimulus using low-dimensional topological embeddings (e.g., Gonzalez-Castillo et al., 2019; Saggar et al., 2018), latent state discovery (Chang et al., 2018), or projection into a higher-order space using recurrent neural networks (Venkatesh et al., 2019)
+
 
 ### Calculating ISC
 
-
-ISC are mostly calculated locally within each voxel or region, but the method has been extended to functional connectivity (e.g. ISFC), which will be dealt with later. 
 
 The first step of ISCs is *calculating individual synchrony* using one of two main approaches. First, one calculates pairwise correlations between all participant pairs to build a full intersubject correlation matrix. The second approach uses the average activity timecourse of other participants as a model for each individual left out participant. This produces individual, rather than pairwise, spatial maps of similarity (how typical one’s brain activation is) in the same way first level results of a traditional general linear model analysis would. However, some individual variability is lost with the average similarity approach and ISC values are typically higher than pairwise matrices.
 
