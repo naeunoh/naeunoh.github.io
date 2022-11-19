@@ -648,7 +648,7 @@ plt.close(animation._fig)
 HTML(animation.to_jshtml())
 ```
 
-<iframe src="/assets/intersubject_phase_sync.html" width="100%" style="border:none;"></iframe>
+<iframe src="/assets/intersubject_phase_sync.html" height="750px" width="100%" style="border:none;"></iframe>
 
 Now, let's pick a frequency band and plot the average phase synchrony over the entire 50min Sherlock viewing within each ROI from out parcellation. Let's continue using a lower bound cutoff frequency of 0.04Hz and an upper bound of 0.07Hz.
 
