@@ -135,10 +135,10 @@ sub_rois.head()
     .dataframe thead th {
         text-align: right;
     }
+    
     .table-wrapper{
         overflow-x: scroll;
     }
-}
 </style>
 <table border="1" class="dataframe">
   <thead>
