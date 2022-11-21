@@ -11,7 +11,7 @@ Whereas ISC and related approached were traditionally developed to detect respon
 If we take the subjects-by-subjects ISC matrix to be a brain similarity matrix, we can **construct a behavioral similarity matrix and use RSA to find brain regions where subjects who are more similar in behavior are also more similar in their neural response**. 
 
 
-![isrsa]({{ site.baseurl }}/assets/img/isrsa/Fig1_multilayer_figure_R1.jpg){: width="100%" }
+![isrsa]({{ site.baseurl }}/assets/img/IS-RSA/Fig1_multilayer_figure_R1.jpg){: width="100%" }
 
 **Fig. 1.** Schematic of inter-subject representational similarity analysis. (Finn et al., 2020). Each subject (bottom layer) is associated with a behavioral score (middle layer) and a pattern of brain activity (top layer, e.g., a time series from a given brain region during naturalistic stimulation). The middle and upper layers depict weighted graphs obtained using the similarity matrices as adjacency matrices, where thicker lines indicate increased similarity between nodes (subjects). In IS-RSA, we construct pairwise (i.e, subject-by-subject) similarity matrices for the behavioral data and the brain data, then compare these matrices using a Mantel test. Thus, we can leverage inter-subject analysis methods such as ISC to detect shared structure between brain data and behavioral data. This figure is a modified version of Fig. 1 in Glerean et al. (2016).
 
