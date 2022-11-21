@@ -110,7 +110,7 @@ def scale_mtx(mtx):
     /Users/naeun-oh/miniconda3/envs/naturalistic37/lib/python3.7/site-packages/ipykernel_launcher.py:7: MatplotlibDeprecationWarning: You are modifying the state of a globally registered colormap. This has been deprecated since 3.3 and in 3.6, you will not be able to modify a registered colormap in-place. To remove this warning, you can make a copy of the colormap first. cmap = mpl.cm.get_cmap("RdYlBu_r").copy()
       import sys
 
-Nearest Neighbors model
+**Nearest Neighbors model**
 
 Let's see what we are assuming the similarity structure should look like if we use Euclidean distance as our metric. The matrix below is subjects-by-subjects, with subjects ordered according to behavioral score (from low to high).
 
@@ -145,7 +145,7 @@ ax.set_title("Nearest neighbor\n(model: Euclidean distance(i,j))")
 
 We can see that in the NN case, we see the highest similarity right slong the diagonal. This means we're assuming that a subject should always look most similar to his or her immediate neighbors, regardless of where they fall on the scale more generally.
 
-Now, compare with the AnnaK case using the mean.
+Now, compare with the **Anna Karenina** case using the mean.
 
 ```python
 annak_mtx = np.zeros((n_subs, n_subs))
@@ -180,7 +180,7 @@ ax.set_title("Anna Karenina\n(model: Euclidean distance(i,j))")
 
 We can see that similarity increases as we move down and to the right, meaning that we expect that high scorers will look similar to other high scorers, but lower scorers don't look similar to one another or to high scorers.
 
-Another way to visualize the similarity structure of these matrices is to project them into a two-dimensional embedding using t-SNE (t-Distributed Stochastic Neighbor Embedding). In the righthand panels in the figure below, each dor represents a subject, and subjects are colored according to their behavioral score. In this embedding, similar observations (subjects) appear nearby, while dissimilar observations appear further away. (You can ingore the component axes for interpretation)
+Another way to visualize the similarity structure of these matrices is to project them into a two-dimensional embedding using **t-SNE (t-Distributed Stochastic Neighbor Embedding)**. In the righthand panels in the figure below, each dor represents a subject, and subjects are colored according to their behavioral score. In this embedding, similar observations (subjects) appear nearby, while dissimilar observations appear further away. (You can ingore the component axes for interpretation)
 
 ```python
 list_of_matrices = [nn_mtx, annak_mtx]
@@ -322,7 +322,7 @@ sns.displot(behav)
 
 ![png]({{ site.baseurl }}/assets/img/IS-RSA/IS-RSA_16_1.png){: width="100%" }
 
-GPTS-A scores follow a pretty skewed distribution in our sample of 22 participants, with most participants scoring fairly low and only a couple scoring higher. This is not necessarily ideal but also not uncommon for a scale like this. For some analyses, we might be worried about these two extreme values driving some or all of our effects, but in RSA it's common to use rank-based similarity metrics (i.e. Spearman correlation instead of Pearson). This means that subjects are not their absolute score, but rather their rank relative to other subjects, thus these two extreme scorers will not be overweighted. 
+GPTS-A scores follow a pretty skewed distribution in our sample of 22 participants, with most participants scoring fairly low and only a couple scoring higher. This is not necessarily ideal but also not uncommon for a scale like this. For some analyses, we might be worried about these two extreme values driving some or all of our effects, but in RSA it's common to use **rank-based similarity metrics** (i.e. Spearman correlation instead of Pearson). This means that subjects are not their absolute score, but rather their rank relative to other subjects, thus these two extreme scorers will not be overweighted. 
 
 In our case, you can think of our behavior as following a uniform distribution of ranks between 1-22, with some ties where 2 or more subjects had the same raw score.
 
@@ -344,7 +344,7 @@ sns.histplot(behav_rank, bins=25)
 
 ## Brain data
 
-We will use a functional parcellation called the Shen atlas (Shen et al., 2013). Let's load our parcellation image and initialize a masker object from nilearn that will allow us to average voxels in each individual node.
+We will use a functional parcellation called the **Shen atlas (Shen et al., 2013)**. Let's load our parcellation image and initialize a masker object from nilearn that will allow us to average voxels in each individual node.
 
 ```python
 mask = Brain_Data('https://neurovault.org/media/images/8423/shen_2mm_268_parcellation.nii.gz')
@@ -367,9 +367,6 @@ sns.heatmap(time_series, cmap='RdBu_r')
 ```
 
     (526, 268)
-
-
-
 
     <AxesSubplot:>
 
@@ -417,9 +414,6 @@ data = np.array(data)
 data.shape
 ```
 
-
-
-
     (22, 1310, 268)
 
 
@@ -433,7 +427,7 @@ n_subs, n_ts, n_nodes = data.shape
 
 ## Calculate Brain Similarity
 
-We will use intersubject correlation (ISC) as our measure of brain similarity. ISC is the Pearson correlation of activity in the same spatial location across two or more subjects. Because all subjects heard the same time-locked story, any correlated activity across brains likely reflect processing of the stimulus.
+We will use **intersubject correlation (ISC)** as our measure of brain similarity. ISC is the Pearson correlation of activity in the same spatial location across two or more subjects. Because all subjects heard the same time-locked story, any correlated activity across brains likely reflect processing of the stimulus.
 
 Keep in mind that, in theory, we could calculate brain similarity based on any type of information we can extract from single subjects' neuroimaging data. For now, we use ISC because it is straightforward to compute, visualize, and interpret.
 
@@ -467,9 +461,6 @@ isc = {node:similarity_matrices[node].isc(metric='mean', n_bootstraps=1, n_jobs=
 expand_mask(mask)
 ```
 
-
-
-
     nltools.data.brain_data.Brain_Data(data=(268, 238955), Y=0, X=(0, 0), mask=MNI152_T1_2mm_brain_mask.nii.gz)
 
 
@@ -481,9 +472,6 @@ isc_brain = roi_to_brain(pd.Series(isc), expand_mask(mask))
 
 plot_glass_brain(isc_brain.to_nifti())
 ```
-
-
-
 
     <nilearn.plotting.displays._projectors.OrthoProjector at 0x7fdb6bc0fad0>
 
@@ -525,9 +513,6 @@ sns.heatmap(sort_square_mtx(behav_sim_nn.squareform(), behav), ax = ax2, square=
 ax2.set_title("Behavioral similarity matrix after sorting", fontsize=16)
 ```
 
-
-
-
     Text(0.5, 1.0, 'Behavioral similarity matrix after sorting')
 
 
@@ -561,9 +546,6 @@ ax1.set_title("Behavioral similarity matrix before sorting", fontsize=16)
 sns.heatmap(sort_square_mtx(behav_sim_annak.squareform(), behav), ax = ax2, square=True)
 ax2.set_title("Behavioral similarity matrix after sorting", fontsize=16)
 ```
-
-
-
 
     Text(0.5, 1.0, 'Behavioral similarity matrix after sorting')
 
@@ -607,9 +589,6 @@ plot_stat_map(isrsa_annak_brain.to_nifti(), display_mode='z', cut_coords=8, vmax
     /Users/naeun-oh/miniconda3/envs/naturalistic37/lib/python3.7/site-packages/nilearn/plotting/img_plotting.py:300: FutureWarning: Default resolution of the MNI template will change from 2mm to 1mm in version 0.10.0
       anat_img = load_mni152_template()
 
-
-
-
     <nilearn.plotting.displays._slicers.ZSlicer at 0x7fdaa0162e10>
 
 
@@ -642,18 +621,15 @@ t, p = ttest_1samp(list(isrsa_annak.values()), 0)
 a[1].annotate(f't={t:.2f}, p = {p:.03f}', xy = (.2, 40),fontsize=16, color='gray')
 ```
 
-
-
-
     Text(0.2, 40, 't=13.75, p = 0.000')
 
 
 
 ![png]({{ site.baseurl }}/assets/img/IS-RSA/IS-RSA_49_1.png){: width="100%" }
 
-We see that the values are generally shifted positive (the expected direction), meaning that there is more representational similarity between brain and behavior than we would expect by chance.
+We see that the values are **generally shifted positive** (the expected direction), meaning that there is more representational similarity between brain and behavior than we would expect by chance.
 
-We can also test if the mean of the two distributions are significantly different from each other using a paired samples t-test.
+We can also test if the mean of the two distributions are significantly different from each other using a **paired samples t-test**.
 
 ```python
 sns.histplot(list(isrsa_nn.values()))
@@ -672,7 +648,7 @@ print(f't={t:.2f}, p = {p:.03f}')
 
 ![png]({{ site.baseurl }}/assets/img/IS-RSA/IS-RSA_51_2.png){: width="100%" }
 
-Another way to visually compare results from the two models is with a scatterplot. Each dot is a node, and we also plot the identity line (where y=x, not the regression line). If the NN and AnnaK models gave identical results, all the dots would fall on this diagonal line. If some dots are above and some dots are below, it means that different nodes are best fit by different models (some by NN, others by AnnaK). If most of the dots are above (rather than below) the line, it means that overall the AnnaK model is better of the majority of nodes.
+Another way to visually compare results from the two models is with a **scatterplot**. Each dot is a node, and we also plot the identity line (where y=x, not the regression line). If the NN and AnnaK models gave identical results, all the dots would fall on this diagonal line. If some dots are above and some dots are below, it means that different nodes are best fit by different models (some by NN, others by AnnaK). If most of the dots are above (rather than below) the line, it means that overall the AnnaK model is better of the majority of nodes.
 
 ```python
 def set_aspect_ratio(ax):
@@ -703,9 +679,6 @@ set_aspect_ratio(ax)
 ax.set_xlabel("NN r value", fontsize=16)
 ax.set_ylabel("AnnaK r value", fontsize=16)
 ```
-
-
-
 
     Text(0, 0.5, 'AnnaK r value')
 
@@ -775,7 +748,7 @@ view_img(isrsa_annak_r_brain.to_nifti())
 
 
 
-Correcting for multiple comparisons
+**Correcting for multiple comparisons**
 
 If we want to make inferences about the significance of representational similarity at individual nodes, we need to correct for multiple comparisons (since for each model we’ve run 268 tests – one for each node). We could use Bonferroni correction, where we divide our alpha threshold (typically 0.05) by the number of tests we’ve run (268) to get a corrected alpha threshold (in this case 0.05/268 = 0.00019), but this is probably too conservative, resulting in many false negatives. An alternative is to use the false discovery rate method (FDR) to give us better power (Benjamini & Hochberg, 1995). 
 
