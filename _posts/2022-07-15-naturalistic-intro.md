@@ -46,13 +46,16 @@ The methods described correspond to the questions asked in the various stages of
 
 **Naturalistic Datasets**
 
-Here are some opensource fMRI datasets on naturalistic tasks.
+Here are some open-source fMRI datasets on naturalistic tasks.
 
 [Human Connectome Project 7T movie-watching data](https://www.humanconnectome.org/study/hcp-young-adult) (n = 184, four 15-minute movie-watching runs, many cognitive, affective, and clinical measures)
 
 [Child Mind Institute Health Brain Network project](http://fcon_1000.projects.nitrc.org/indi/cmi_healthy_brain_network/index.html) (n = 2,500+ and growing, two movie-watching runs [one 10-minute and one 3.5-minute], many cognitive, affective, and clinical measures)
 
-[Narratives: fMRI data for evaluating models of naturalistic language comprehension](https://openneuro.org/datasets/ds002345/versions/1.0.1)
+[Narratives: fMRI data for evaluating models of naturalistic language comprehension](https://openneuro.org/datasets/ds002345/versions/1.0.1) (n=315, auditory listening of naturalistic spoken stories [~3 to ~56 minutes], includes anatomical data)
 
-[Paranoia: fMRI data for listening to audio narratives](https://openneuro.org/datasets/ds001338/versions/1.0.0)
+[Paranoia: fMRI data for listening to audio narratives](https://openneuro.org/datasets/ds001338/versions/1.0.0) (n=22, auditory listening of original audio narrative designed to elicit individual variation of suspicion/paranoia)
 
+There are also behavioral (only) datasets of naturalistic tasks.
+
+[Standford Emotional Narratives Dataset](https://github.com/StanfordSocialNeuroscienceLab/SEND) (n=193, videos of people recounting important and emotional life stories, and valence ratings watching the videos)
