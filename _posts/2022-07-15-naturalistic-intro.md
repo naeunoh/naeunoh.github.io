@@ -22,15 +22,16 @@ I have reorganized and re-explained the tutorials to make it more comprehensive.
 
 The methods described correspond to the questions asked in the various stages of naturalistic data analysis. Note that this only suggests that these methods can be used in these steps of naturalistic data analysis and their usage is not limited to the field of naturalistic tasks. In fact, they are commonly used in other types of tasks including block or event design controlled tasks, multivariate analyses, and Bayesian models.
 
->**Research Questions for Naturalistic Tasks & Corresponding Methods**
+>**Research Questions & Corresponding Methods for Naturalistic Tasks**
 >
 > 1. How do we build models using naturalistic designs?
->   Indirectly model by capturing “reliable” neural responses among subjects
+>    1-1. Indirectly model by capturing “reliable” neural responses among subjects
 >   - Minimize individual variations with Functional Alignment
 >   - Predict one’s brain activity from another : Intersubject Correlation Intersubject Functional Connectivity
 >   - Individual variations in brain activity : Intersubject Representational Similarity Analysis (IS-RSA)
 >   - Dynamic changes in ISC : Intersubject Phase Synchrony
->   Explicitly annotate features of the model
+>   
+>    1-2. Explicitly annotate features of the model
 >   - Define stimuli using Automated Annotations
 >   - Define stimuli using Natural Language Processing
 > 2. How does the brain segment information from experiences? 
