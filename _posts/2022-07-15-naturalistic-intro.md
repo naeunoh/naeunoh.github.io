@@ -56,6 +56,7 @@ Here are some open-source fMRI datasets on naturalistic tasks.
 
 [Paranoia: fMRI data for listening to audio narratives](https://openneuro.org/datasets/ds001338/versions/1.0.0) (n=22, auditory listening of original audio narrative designed to elicit individual variation of suspicion/paranoia)
 
+[Child Mind Institute: Healthy Brain Network](http://fcon_1000.projects.nitrc.org/indi/cmi_healthy_brain_network/)
 
 There are also behavioral (only) datasets of naturalistic tasks.
 
