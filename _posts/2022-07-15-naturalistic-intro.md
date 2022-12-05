@@ -58,6 +58,8 @@ Here are some open-source fMRI datasets on naturalistic tasks.
 
 [Child Mind Institute: Healthy Brain Network](http://fcon_1000.projects.nitrc.org/indi/cmi_healthy_brain_network/)
 
+[Cam-CAN (Cambridge Centre for Ageing Neuroscience) dataset inventory](https://camcan-archive.mrc-cbu.cam.ac.uk/dataaccess/) (n=650, moving watching, many cognitive task datasets)
+
 There are also behavioral (only) datasets of naturalistic tasks.
 
 [Standford Emotional Narratives Dataset](https://github.com/StanfordSocialNeuroscienceLab/SEND) (n=193, videos of people recounting important and emotional life stories, and valence ratings watching the videos)
