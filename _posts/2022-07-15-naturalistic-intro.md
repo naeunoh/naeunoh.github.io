@@ -25,23 +25,22 @@ The methods described correspond to the questions asked in the various stages of
 >**Research Questions & Corresponding Methods for Naturalistic Tasks**
 >
 > 1. How do we build models using naturalistic designs?
->    1-1. Indirectly model by capturing “reliable” neural responses among subjects
->   - Minimize individual variations with Functional Alignment
->   - Predict one’s brain activity from another : Intersubject Correlation Intersubject Functional Connectivity
->   - Individual variations in brain activity : Intersubject Representational Similarity Analysis (IS-RSA)
->   - Dynamic changes in ISC : Intersubject Phase Synchrony
->   
->    1-2. Explicitly annotate features of the model
->   - Define stimuli using Automated Annotations
->   - Define stimuli using Natural Language Processing
+>   1. Indirectly model by capturing “reliable” neural responses among subjects
+>       - Minimize individual variations with Functional Alignment
+>       - Predict one’s brain activity from another : Intersubject Correlation Intersubject Functional Connectivity
+>       - Individual variations in brain activity : Intersubject Representational Similarity Analysis (IS-RSA)
+>       - Dynamic changes in ISC : Intersubject Phase Synchrony
+>   2. Explicitly annotate features of the model
+>       - Define stimuli using Automated Annotations
+>       - Define stimuli using Natural Language Processing
 > 2. How does the brain segment information from experiences? 
-> Event Segmentation (Hidden Markov Model, Greedy State Boundary Search)
+>   - Event Segmentation (Hidden Markov Model, Greedy State Boundary Search)
 > 3. How do networks of brain regions dynamically reconfigure as thoughts and experiences change over time? 
-> Hidden Semi-Markov Model
-> 4. How do networks of brain regions (FC) interact in higher order patterns
-> Dynamic Connectivity
+>   - Hidden Semi-Markov Model
+> 4. How do networks of brain regions (FC) interact in higher order patterns?
+>   - Dynamic Connectivity
 > 5. How do we visualize complex high-dimensional data? 
-> Embedding with Hypertools
+>   - Embedding with Hypertools
 
 
 **Naturalistic Datasets**
