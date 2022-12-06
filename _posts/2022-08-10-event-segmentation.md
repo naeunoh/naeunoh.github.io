@@ -18,7 +18,7 @@ We’ll show how both **Hidden Markov Model (HMM)** and **Greedy State Boundary 
 I’ve summarized the content of the video here.
 
 
-### **Event Segmentation - HMM**
+#### **Event Segmentation - HMM**
 
 We divide naturalistic environments into discrete events, separated by event boundaries. These event boundaries are known to influence the dynamics of perception, immediate recall, and long-term memory.
 
@@ -26,7 +26,7 @@ How do we identify event boundaries? First, human observers can annotate when ev
 
 Instead, can we find event boundaries directly from fMRI data? The basic idea is to identify event boundaries as shifts in fMRI activity patterns. For example, if we look at these three voxel time courses, we can identify two moments at which these voxels show shifts in activities, diving up the time courses into three events, each of which has a characteristic spatial pattern of activity. 
 
-![eventseg]({{ site.baseurl }}/assets/img/es/eventsegexample.png){: width="80%" }
+![eventseg]({{ site.baseurl }}/assets/img/es/eventsegexample.png){: width="50%" }
 
 We can see this temporal structure by looking at the angular gyrus during the beginning of the Sherlock dataset. If we take the spatial patterns in the angular gyrus and measure the correlation between all pairs of timepoints, we can obtain a matrix with **blocky structure along the diagonal**. This is the type of structure we’re looking for in event boundaries.
 
@@ -53,7 +53,7 @@ How do we use the event boundaries that we found?
 This HMM approach has also been applied to other neuroimaging modalities such as EEG.
 
 
-### **Event Segmentation – GSBS**
+#### **Event Segmentation – GSBS**
 
 Events organize our experience over time by transforming continuous inputs into units that can be understood and remembered. Events are shared across participants, organized hierarchically. How does the brain segment information over time into neural states? 
 
@@ -78,7 +78,7 @@ So, how do we determine the number of boundaries? In the time x time correlation
 ![gsbs-num]({{ site.baseurl }}/assets/img/es/gsbs-numofboundaries.png){: width="100%" }
 
 
-We compared HMM and GSBS methods on simulated data. As states had more varying lengths, GSBS maintained high accuracy but HMM’s accuracy dropped. When looking at the worst performing simulation for HMM, H**MM over-estimates the number of state boundaries as it detects states with approximately the same lengths.** When looking at GSBS with the same low performance has HMM, **GSBS detects all the boundaries with slight delays in some.** Note that the split-merge option in the latest implementation of the HMM-method is partially accounted for the over-estimation issue. 
+We compared HMM and GSBS methods on simulated data. As states had more varying lengths, GSBS maintained high accuracy but HMM’s accuracy dropped. When looking at the worst performing simulation for HMM, **HMM over-estimates the number of state boundaries as it detects states with approximately the same lengths.** When looking at GSBS with the same low performance has HMM, **GSBS detects all the boundaries with slight delays in some.** Note that the split-merge option in the latest implementation of the HMM-method is partially accounted for the over-estimation issue. 
 
 As for determining the number of states, GSBS accurately estimates the number of states whereas HMM’s WAC tends to over-estimate the number of states especially as there are more states. However, GSBS does over-estimate when there is more noise in the data. While LOO CV still gave over-estimation, averaging the data across subjects accurately estimated the number of states (in simulated and real data).
 
