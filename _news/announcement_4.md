@@ -1,7 +1,7 @@
 ---
 layout: post
-date: 2021-08-20 07:59:00 -0400
+date: 2023-03-20 07:59:00 -0400
 inline: true
 ---
 
-Completed Neuromatch Academy 2021 - Deep Learning! :sparkles: :smile:
+Published experimental paper on the different brain connectivities during social exclusion with real-life relationships that vary in closeness
