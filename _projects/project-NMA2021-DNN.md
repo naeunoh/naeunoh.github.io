@@ -7,6 +7,9 @@ importance: 2
 category: work
 ---
 
+This is a group project work from Neuromatch Academy 2021 Computational Neuroscience course. Contributions to the work were made by Ying Zhou and Naeun Oh.
+
+
 Human visual system is known to have an anatomical and functional hierarchical structure. Different regions of the visual cortex process different visual information in a hierarchy from basic features to object recognition. Recent advances in computer vision allow deep neural network models (DNN) to recognize visual stimulation with high accuracy. Does the DNN capture feature information of images in a way that the brain does? If so, what does this imply about the hierarchy of the visual system as a network?
 Using fMRI responses while viewing images, we explore whether DNN models can explain the hierarchy of representations in the visual cortex.
 

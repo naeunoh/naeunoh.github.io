@@ -7,6 +7,9 @@ importance: 1
 category: work
 ---
 
+This is a group project work from Neuromatch Academy 2021 Deep Learning course. Contributions to the work were made by Jaeyoung Jeon, NaEun Oh, Hanbo Xie, and Jindu Wang.
+
+
 Unveiling the fundamental cognitive process of maximizing reward in a naturalistic environment has been a long-going challenge in both cognitive neuroscience and computer science. Recently, there are many attempts to use reinforcement learning to better understand the relevant mechanisms of the human brain.The human brain employs both exploration and exploitation strategies in learning about a new environment, where they generally apply model-free and model-based RL algorithms. The standard view is that both algorithms run in parallel either through integration or competition. However, previous work assumes unidirectional transition from model-free to model-based algorithms but not vice versa, which is more likely to occur in a changing environment. Moreover, the fundamental structure that directly employs algorithms in parallel before sufficient evidence accumulation may not adequately explain human behavior of exploration under uncertain environments.
 
 <div class="row">
