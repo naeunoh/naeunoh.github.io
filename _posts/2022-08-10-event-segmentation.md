@@ -15,7 +15,7 @@ We’ll show how both **Hidden Markov Model (HMM)** and **Greedy State Boundary 
 
 [This video](https://youtu.be/KvwzjRtbJ6U) by Dr. Linda Geerligs, PhD will discuss event segmentation using GSBS.
 
-I’ve summarized the content of the video here.
+I’ve summarized the content of the videos here.
 
 
 #### **Event Segmentation - HMM**
@@ -32,11 +32,11 @@ We can see this temporal structure by looking at the angular gyrus during the be
 
 ![hmm-block]({{ site.baseurl }}/assets/img/es/hmm-blockpattern.png){: width="100%" }
 
-**Hidden Markov Model (HMM)** assumes the brain moves through a sequence of latent states which correspond to events ($$s_t$$). We observe a sequence of brain activity (b_t). Every event has some characteristic pattern of activity (m_k). All brain activities occurring during that event should be correlated with that characteristic. Thus, given a sequence of brain activity (b_t), we can infer where event boundaries are (which event every time point belongs to, s_t) and what these characteristic event patterns are (m_k). The model alternates between estimating variables s_t and m_k until convergence. 
+**Hidden Markov Model (HMM)** assumes the brain moves through a sequence of latent states which correspond to events ($$s_t$$). We observe a sequence of brain activity ($$b_t$$). Every event has some characteristic pattern of activity ($$m_k$$). All brain activities occurring during that event should be correlated with that characteristic. Thus, given a sequence of brain activity ($$b_t$$), we can infer where event boundaries are (which event every time point belongs to, $$s_t$$) and what these characteristic event patterns are ($$m_k$$). The model alternates between estimating variables $$s_t$$ and $$m_k$$ until convergence. 
 
 ![hmm]({{ site.baseurl }}/assets/img/es/hmm.png){: width="100%" }
 
-HMM requires choosing the number of boundaries we want to find. One option is to fit the model on N-1 subjects to find boundaries and look at spatial pattern correlations within and across boundaries. We can choose the number of events (k) that maximizes the **within vs across (all other states) event boundary correlation (WAC)**. Another approach is to look at the **log-likelihood** of the model, which is to look at the model fit. We can train the model on some subjects can measure the model fit on other subjects, determining the number of events for which this model log-likelihood is highest. 
+HMM requires choosing the number of boundaries we want to find. One option is to fit the model on N-1 subjects to find boundaries and look at spatial pattern correlations within and across boundaries. We can choose the number of events ($$k$$) that maximizes the **within vs across (all other states) event boundary correlation (WAC)**. Another approach is to look at the **log-likelihood** of the model, which is to look at the model fit. We can train the model on some subjects can measure the model fit on other subjects, determining the number of events for which this model log-likelihood is highest. 
 
 After identifying event boundaries of the model in different brain regions, we can **compare those boundaries to those annotated by human observers**. In general, we found that regions like the angular gyrus and the posterior medial cortex have event boundaries that correspond well with human annotated boundaries. When we look at how the optimal number of event boundaries varies across regions, we find a gradient from the sensory cortex to higher-level cortex such that regions like the visual cortex and auditory cortex have a large number of event boundaries, whereas high-level cortex have longer events in the scale of up to a minute in length.
 
@@ -73,7 +73,7 @@ Now, the first state boundary is set (that’s why this is greedy). Then, we rep
 ![gsbs]({{ site.baseurl }}/assets/img/es/gsbs.png){: width="100%" }
 
 
-So, how do we determine the number of boundaries? In the time x time correlation matrix, we look at within state correlations and between consecutive state correlations. With the distribution of within state correlations and the distribution between consecutive state correlations, we find the optimal k number of state boundaries where the distance between the two distributions is maximal (i.e., when within state correlation is highest and between consecutive state correlation is lowest). To measure the distance, we use **T-distance** by running t-tests contrasting the within and between state correlation for each potential number of states and finding the maximum T-distance.
+So, how do we determine the number of boundaries? In the time x time correlation matrix, we look at within state correlations and between consecutive state correlations. With the distribution of within state correlations and the distribution between consecutive state correlations, we find the optimal $$k$$ number of state boundaries where the distance between the two distributions is maximal (i.e., when within state correlation is highest and between consecutive state correlation is lowest). To measure the distance, we use **T-distance** by running t-tests contrasting the within and between state correlation for each potential number of states and finding the maximum T-distance.
 
 ![gsbs-num]({{ site.baseurl }}/assets/img/es/gsbs-numofboundaries.png){: width="100%" }
 
@@ -82,7 +82,7 @@ We compared HMM and GSBS methods on simulated data. As states had more varying l
 
 As for determining the number of states, GSBS accurately estimates the number of states whereas HMM’s WAC tends to over-estimate the number of states especially as there are more states. However, GSBS does over-estimate when there is more noise in the data. While LOO CV still gave over-estimation, averaging the data across subjects accurately estimated the number of states (in simulated and real data).
 
-The weakness of GSBS is that it is difficult to match neural states across datasets (why? Data driven?). Thus, we suggest a method combing GSBS and HMM by estimating the neural states in one dataset and using HMM to identify the same activity patterns in a different dataset.
+The weakness of GSBS is that it is difficult to match neural states across datasets (because it's data driven?). Thus, we suggest a method combing GSBS and HMM by estimating the neural states in one dataset and using HMM to identify the same activity patterns in a different dataset.
 
 
 Examining the duration of states identified by GSBS in the whole brain, we found a brain-wide hierarchy in the timescales of information processing, where sensory regions show short neural states and regions such as the medial prefrontal cortex show long periods of information integration. We also correlated the behaviorally identified event boundaries and neural state boundaries, considering the possible delays of 4-8 seconds and using permutation for significance testing.

@@ -19,7 +19,7 @@ Another newly developing approach lead by Jim Haxby and Peter Ramadge projects s
 The basic idea behind hyperalignment is as follows.
 
 First, the cortical patterns are treated as vectors corresponding to locations in a high dimensional space, where each axis reflects a measurement of that pattern (e.g. voxel activity). Rather than treating cortical functions in a 1D (average roi activity), 2D (cortical sheet), or 3D physical space, HA models information as being embedded in an n-D space, where n reflects the number of measurements (e.g. voxels). Simply put, a cortical pattern of a timepoint t (e.g. conditions, stimuli, timepoints) is vectorized or flattened into a vector and then expressed as a location point/position in the n-dimensional space where each axis is a voxel. 
-Then, vector representations of individual cortical patterns can be transformed into a common dimensional space that is shared across participants (Haxby et al., 2000). Each cortical pattern has a unique transformation matrix (voxel x dimension). 
+Then, vector representations of individual cortical patterns can be transformed into a common dimensional space that is shared across participants (Haxby et al., 2000). Each cortical pattern has a unique transformation matrix ($$voxel x dimension$$). 
 
 ![hyperalignment]({{ site.baseurl }}/assets/img/fa/elife-56601-fig1-v1.jpg){: width="100%" }
 
