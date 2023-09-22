@@ -10,10 +10,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Naeun  Oh | blog</title>
+    <title>Naeun  Oh | Functional Alignment</title>
     <meta name="author" content="Naeun  Oh" />
-    <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
-" />
+    <meta name="description" content="minimize individual variation" />
     <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website" />
 
 
@@ -32,7 +31,7 @@
     <!-- Styles -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://naeunoh.github.io/blog/">
+    <link rel="canonical" href="https://naeunoh.github.io/blog/2022/functional-alignment/">
 
     <!-- Dark Mode -->
     <script src="/assets/js/theme.js"></script>
@@ -67,7 +66,7 @@
               
               <!-- Blog -->
               <li class="nav-item active">
-                <a class="nav-link" href="/blog/">blog<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/blog/">blog</a>
               </li>
 
               <!-- Other pages -->
@@ -87,8 +86,8 @@
               </li>
 
               <!-- Toogle theme mode -->
-              <div class = "toggle-container">
-                <a id = "light-toggle">
+              <div class="toggle-container">
+                <a id="light-toggle">
                   <i class="fas fa-moon"></i>
                   <i class="fas fa-sun"></i>
                 </a>
@@ -101,156 +100,55 @@
 
     <!-- Content -->
     <div class="container mt-5">
-      <div class="post">
+      <!-- _layouts/post.html -->
 
-  <div class="header-bar">
-    <h1>Naeun-Oh</h1>
-    <h2>some thoughts on the mind and the brain</h2>
-  </div>
+<div class="post">
 
-
-  <ul class="post-list">
-    
-
-    
-    
-    
-    
-
-    <li>
-      <h3><a class="post-title" href="/blog/2022/event-segmentation/">Event Segmentation</a>
-      </h3>
-      <p>how the brain segments info</p>
-      <p class="post-meta"> 9 min read &nbsp; &middot; &nbsp;
-        August 10, 2022
-      </p>
-      <p class="post-tags">
-        <a href="/blog/2022">
-          <i class="fas fa-calendar fa-sm"></i> 2022 </a>
-
+  <header class="post-header">
+    <h1 class="post-title">Functional Alignment</h1>
+    <p class="post-meta">July 16, 2022</p>
+    <p class="post-tags">
+      <a href="/blog/2022"> <i class="fas fa-calendar fa-sm"></i> 2022 </a>
+        ·  
+        <a href="/blog/tag/neuroimaging">
+          <i class="fas fa-hashtag fa-sm"></i> neuroimaging</a>  
+          <a href="/blog/tag/psychology">
+          <i class="fas fa-hashtag fa-sm"></i> psychology</a>  
+          <a href="/blog/tag/analysis-methods">
+          <i class="fas fa-hashtag fa-sm"></i> analysis-methods</a>  
           
-          &nbsp; &middot; &nbsp;
-            
-            <a href="/blog/tag/neuroimaging">
-              <i class="fas fa-hashtag fa-sm"></i> neuroimaging</a> &nbsp;
-              
-            <a href="/blog/tag/psychology">
-              <i class="fas fa-hashtag fa-sm"></i> psychology</a> &nbsp;
-              
-            <a href="/blog/tag/analysis-methods">
-              <i class="fas fa-hashtag fa-sm"></i> analysis-methods</a> &nbsp;
-              
+        ·  
+        <a href="/blog/category/naturalistic-data-analysis">
+          <i class="fas fa-tag fa-sm"></i> naturalistic-data-analysis</a>  
           
 
-          
-          &nbsp; &middot; &nbsp;
-            
-            <a href="/blog/category/naturalistic-data-analysis">
-              <i class="fas fa-tag fa-sm"></i> naturalistic-data-analysis</a> &nbsp;
-              
-          
     </p>
-    </li>
+  </header>
 
-    
+  <article class="post-content">
+    <p>Generally, neuroimaging studies implicitly assume that each person’s brain processes information in the same way as other people’s brains. However, it is a known fact that there is a wide variation in individual neuroanatomy.</p>
 
-    
-    
-    
-    
+<p>Thus, to identify the common brain processes, we must normalize each participant into a common stereotactic space. This would minimize the individual variation that we are not interested in.</p>
 
-    <li>
-      <h3><a class="post-title" href="/blog/2022/intersubject-rsa-code/">Intersubject RSA Notebook</a>
-      </h3>
-      <p>tutorial for intersubject rsa</p>
-      <p class="post-meta"> 42 min read &nbsp; &middot; &nbsp;
-        August 4, 2022
-      </p>
-      <p class="post-tags">
-        <a href="/blog/2022">
-          <i class="fas fa-calendar fa-sm"></i> 2022 </a>
+<p>One way is applying a small amount of Gaussian smoothing to mitigate small misalignments and increase voxel signal to noise ratios (SNR). This method is effective when performing mass univariate testing but problematic when using multivariate techniques that assume strong alignment of features (e.g. voxels) across participants.</p>
 
-          
-          &nbsp; &middot; &nbsp;
-            
-            <a href="/blog/tag/neuroimaging">
-              <i class="fas fa-hashtag fa-sm"></i> neuroimaging</a> &nbsp;
-              
-            <a href="/blog/tag/psychology">
-              <i class="fas fa-hashtag fa-sm"></i> psychology</a> &nbsp;
-              
-            <a href="/blog/tag/analysis-methods">
-              <i class="fas fa-hashtag fa-sm"></i> analysis-methods</a> &nbsp;
-              
-          
+<p>Another newly developing approach lead by Jim Haxby and Peter Ramadge projects subjects into common space based on how voxels respond to stimuli or are connected to other voxels. This is called <strong>functional alignment</strong> or <strong>hyperalignment</strong>.</p>
 
-          
-          &nbsp; &middot; &nbsp;
-            
-            <a href="/blog/category/naturalistic-data-analysis">
-              <i class="fas fa-tag fa-sm"></i> naturalistic-data-analysis</a> &nbsp;
-              
-          
-    </p>
-    </li>
+<p>The basic idea behind hyperalignment is as follows.</p>
 
-    
+<p>First, the cortical patterns are treated as vectors corresponding to locations in a high dimensional space, where each axis reflects a measurement of that pattern (e.g. voxel activity). Rather than treating cortical functions in a 1D (average roi activity), 2D (cortical sheet), or 3D physical space, HA models information as being embedded in an n-D space, where n reflects the number of measurements (e.g. voxels). Simply put, a cortical pattern of a timepoint t (e.g. conditions, stimuli, timepoints) is vectorized or flattened into a vector and then expressed as a location point/position in the n-dimensional space where each axis is a voxel. 
+Then, vector representations of individual cortical patterns can be transformed into a common dimensional space that is shared across participants (Haxby et al., 2000). Each cortical pattern has a unique transformation matrix (\(voxel x dimension\)).</p>
 
-    
-    
-    
-    
+<p><img src="/assets/img/fa/elife-56601-fig1-v1.jpg" alt="hyperalignment" width="100%"></p>
 
-    <li>
-      <h3><a class="post-title" href="/blog/2022/intersubject-rsa/">Intersubject RSA</a>
-      </h3>
-      <p>individual variations in brain activity</p>
-      <p class="post-meta"> 7 min read &nbsp; &middot; &nbsp;
-        July 20, 2022
-      </p>
-      <p class="post-tags">
-        <a href="/blog/2022">
-          <i class="fas fa-calendar fa-sm"></i> 2022 </a>
+<p><strong>Note:</strong> <a href="https://youtu.be/fNk_zzaMoSs" target="_blank" rel="noopener noreferrer">3blue1brown video on vectors</a> might help understand the general concept of vectors in space.</p>
 
-          
-          &nbsp; &middot; &nbsp;
-            
-            <a href="/blog/tag/neuroimaging">
-              <i class="fas fa-hashtag fa-sm"></i> neuroimaging</a> &nbsp;
-              
-            <a href="/blog/tag/psychology">
-              <i class="fas fa-hashtag fa-sm"></i> psychology</a> &nbsp;
-              
-            <a href="/blog/tag/analysis-methods">
-              <i class="fas fa-hashtag fa-sm"></i> analysis-methods</a> &nbsp;
-              
-          
+<p>There are many different models of functional alignment. The basic framework can be applied to cortical patterns of voxel responses (<em>response-based hyperalignment</em>, vector=timepoint x voxel) or functional connectivity (<em>connectivity-based hyperalignment</em>, vector=target x connected node) or latent feature space (<em>shared response model</em>, joint-SVD).
+Overall, the lower dimensional projections (onto common dimensional space) remove redundant axes in the high dimensional space and can effectively denoise the signal, which also improves classification accuracy of subsequent analysis. It has been shown that all the different approaches can dramatically improve between subject classification accuracy in ventral temporal cortex.</p>
 
-          
-          &nbsp; &middot; &nbsp;
-            
-            <a href="/blog/category/naturalistic-data-analysis">
-              <i class="fas fa-tag fa-sm"></i> naturalistic-data-analysis</a> &nbsp;
-              
-          
-    </p>
-    </li>
+<p>(For detailed information, watch the <a href="https://youtu.be/QX7sNaLyxdo" target="_blank" rel="noopener noreferrer">video by Dr. James Haxby, PhD</a> from the 2018 MIND Computational Summer School. I will add more on this)</p>
 
-    
-  </ul>
-
-  <nav aria-label="Blog page naviation">
-  <ul class="pagination pagination-lg justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link" href="" tabindex="-1" aria-disabled="">Newer</a>
-    </li><li class="page-item active"><a class="page-link" href="/blog/index.html" title="blog">1</a></li>
-      <li class="page-item "><a class="page-link" href="/blog/page/2/index.html" title="blog - page 2">2</a></li>
-      <li class="page-item "><a class="page-link" href="/blog/page/3/index.html" title="blog - page 3">3</a></li>
-      <li class="page-item ">
-      <a class="page-link" href="/blog/page/2/">Older</a>
-    </li>
-  </ul>
-</nav>
+  </article>
 
 </div>
 
@@ -259,7 +157,7 @@
     <!-- Footer -->    
     <footer class="fixed-bottom">
       <div class="container mt-0">
-        &copy; Copyright 2023 Naeun  Oh. Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
+        © Copyright 2023 Naeun  Oh. Powered by <a href="http://jekyllrb.com/" target="_blank" rel="noopener noreferrer">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" target="_blank" rel="noopener noreferrer">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a>.
 
       </div>
     </footer>

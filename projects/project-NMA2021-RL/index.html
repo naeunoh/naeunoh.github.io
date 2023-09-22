@@ -2,7 +2,7 @@
 <html lang="en">
 
   <!-- Head -->
-  <head><meta http-equiv="refresh" content="3; url=https://naeunoh.github.io/" />        
+  <head>        
     <!-- Metadata, OpenGraph and Schema.org -->
     
 
@@ -10,9 +10,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Naeun  Oh | Page not found</title>
+    <title>Naeun  Oh | Building a controller in model-free and model-based RL in two-step task</title>
     <meta name="author" content="Naeun  Oh" />
-    <meta name="description" content="Looks like there has been a mistake. Nothing exists here." />
+    <meta name="description" content="NMA2021 Deep Learning Project" />
     <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website" />
 
 
@@ -31,7 +31,7 @@
     <!-- Styles -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://naeunoh.github.io/404.html">
+    <link rel="canonical" href="https://naeunoh.github.io/projects/project-NMA2021-RL/">
 
     <!-- Dark Mode -->
     <script src="/assets/js/theme.js"></script>
@@ -104,12 +104,136 @@
         <div class="post">
 
           <header class="post-header">
-            <h1 class="post-title">Page not found</h1>
-            <p class="post-description">Looks like there has been a mistake. Nothing exists here.</p>
+            <h1 class="post-title">Building a controller in model-free and model-based RL in two-step task</h1>
+            <p class="post-description">NMA2021 Deep Learning Project</p>
           </header>
 
           <article>
-            <p>You will be redirected to the main page within 3 seconds. If not redirected, please click <a href="https://naeunoh.github.io/">here</a>.</p>
+            <p>This is a group project work from Neuromatch Academy 2021 Deep Learning course. Contributions to the work were made by Jaeyoung Jeon, NaEun Oh, Hanbo Xie, and Jindu Wang.</p>
+
+<p>Unveiling the fundamental cognitive process of maximizing reward in a naturalistic environment has been a long-going challenge in both cognitive neuroscience and computer science. Recently, there are many attempts to use reinforcement learning to better understand the relevant mechanisms of the human brain.The human brain employs both exploration and exploitation strategies in learning about a new environment, where they generally apply model-free and model-based RL algorithms. The standard view is that both algorithms run in parallel either through integration or competition. However, previous work assumes unidirectional transition from model-free to model-based algorithms but not vice versa, which is more likely to occur in a changing environment. Moreover, the fundamental structure that directly employs algorithms in parallel before sufficient evidence accumulation may not adequately explain human behavior of exploration under uncertain environments.</p>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <figure>
+
+  <picture>
+    <source media="(max-width: 480px)" srcset="/assets/img/project_NMA_DL/Falling%20Humans_intro-480.webp"></source>
+    <source media="(max-width: 800px)" srcset="/assets/img/project_NMA_DL/Falling%20Humans_intro-800.webp"></source>
+    <source media="(max-width: 1400px)" srcset="/assets/img/project_NMA_DL/Falling%20Humans_intro-1400.webp"></source>
+    <!-- Fallback to the original file -->
+    <img class="img-fluid rounded z-depth-1" src="/assets/img/project_NMA_DL/Falling%20Humans_intro.jpg" title="reinforcement learning models">
+
+  </picture>
+
+</figure>
+
+    </div>
+</div>
+<div class="caption">
+    Reinforcement Learning Models : Model-free, Model-based, and our model.
+</div>
+
+<p>This research intends to investigate how the transition between model-free and model-based learning contributes to adaptive learning under uncertainty, especially how different models represent exploitation and exploration. We simulate various agents of RL playing a two-step bandit task with shifting probabilities of rewards and state transitions.</p>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <figure>
+
+  <picture>
+    <source media="(max-width: 480px)" srcset="/assets/img/project_NMA_DL/Falling%20Humans_methods-480.webp"></source>
+    <source media="(max-width: 800px)" srcset="/assets/img/project_NMA_DL/Falling%20Humans_methods-800.webp"></source>
+    <source media="(max-width: 1400px)" srcset="/assets/img/project_NMA_DL/Falling%20Humans_methods-1400.webp"></source>
+    <!-- Fallback to the original file -->
+    <img class="img-fluid rounded z-depth-1" src="/assets/img/project_NMA_DL/Falling%20Humans_methods.jpg" title="methods-task">
+
+  </picture>
+
+</figure>
+
+    </div>
+</div>
+<div class="caption">
+    Two-step bandit task with shifting probabilities of rewards and state transitions.
+</div>
+
+<p>We define a model that shifts between model-free and model-based RL with an independent controller module based on uncertainty.</p>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <figure>
+
+  <picture>
+    <source media="(max-width: 480px)" srcset="/assets/img/project_NMA_DL/Falling%20Humans_functions-480.webp"></source>
+    <source media="(max-width: 800px)" srcset="/assets/img/project_NMA_DL/Falling%20Humans_functions-800.webp"></source>
+    <source media="(max-width: 1400px)" srcset="/assets/img/project_NMA_DL/Falling%20Humans_functions-1400.webp"></source>
+    <!-- Fallback to the original file -->
+    <img class="img-fluid rounded z-depth-1" src="/assets/img/project_NMA_DL/Falling%20Humans_functions.jpg" title="methods-task">
+
+  </picture>
+
+</figure>
+
+    </div>
+</div>
+<div class="caption">
+    Algorithms of the model-free and model-based components of our model.
+</div>
+
+<p>This is how we defined the independent controller.</p>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <figure>
+
+  <picture>
+    <source media="(max-width: 480px)" srcset="/assets/img/project_NMA_DL/Falling%20Humans_controller-480.webp"></source>
+    <source media="(max-width: 800px)" srcset="/assets/img/project_NMA_DL/Falling%20Humans_controller-800.webp"></source>
+    <source media="(max-width: 1400px)" srcset="/assets/img/project_NMA_DL/Falling%20Humans_controller-1400.webp"></source>
+    <!-- Fallback to the original file -->
+    <img class="img-fluid rounded z-depth-1" src="/assets/img/project_NMA_DL/Falling%20Humans_controller.jpg" title="methods-task">
+
+  </picture>
+
+</figure>
+
+    </div>
+</div>
+<div class="caption">
+    The controller of our RL model that decides whether to shift between model-free and model-based learning.
+</div>
+
+<p>We expect the shifting model to outperform the independent RLs on the fraction of rewarded trials and total reward. In addition, the shifting model will exhibit patterns of stay probabilities that differ from independent RLs.</p>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <figure>
+
+  <picture>
+    <source media="(max-width: 480px)" srcset="/assets/img/project_NMA_DL/Falling%20Humans_results-480.webp"></source>
+    <source media="(max-width: 800px)" srcset="/assets/img/project_NMA_DL/Falling%20Humans_results-800.webp"></source>
+    <source media="(max-width: 1400px)" srcset="/assets/img/project_NMA_DL/Falling%20Humans_results-1400.webp"></source>
+    <!-- Fallback to the original file -->
+    <img class="img-fluid rounded z-depth-1" src="/assets/img/project_NMA_DL/Falling%20Humans_results.jpg" title="methods-task">
+
+  </picture>
+
+</figure>
+
+    </div>
+</div>
+
+<p>The results show that …
+Average reward
+Mf : does not learn the task -&gt; does not take into account state transition probabilities
+Mb : learns the task and gets rewards at an average of 0.6
+Controller : takes longer to learn reward but gets higher rewards than mb of average of 0.7</p>
+
+<p>Model switching helps the agent to maximize reward under uncertain naturalistic environment.
+Functional model switching structure can be made with event memory and entropy calculation.</p>
+
+<p>This research suggests the adaptive transition between learning models provides a better understanding of the decision making process and its underlying architecture.</p>
+
 
           </article>
 

@@ -2,7 +2,7 @@
 <html lang="en">
 
   <!-- Head -->
-  <head><meta http-equiv="refresh" content="3; url=https://naeunoh.github.io/" />        
+  <head>        
     <!-- Metadata, OpenGraph and Schema.org -->
     
 
@@ -10,9 +10,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Naeun  Oh | Page not found</title>
+    <title>Naeun  Oh | Neuroimaging - Naturalistic Data Analysis</title>
     <meta name="author" content="Naeun  Oh" />
-    <meta name="description" content="Looks like there has been a mistake. Nothing exists here." />
+    <meta name="description" content="intro to naturalistic methods" />
     <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website" />
 
 
@@ -31,7 +31,7 @@
     <!-- Styles -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://naeunoh.github.io/404.html">
+    <link rel="canonical" href="https://naeunoh.github.io/blog/2022/naturalistic-intro/">
 
     <!-- Dark Mode -->
     <script src="/assets/js/theme.js"></script>
@@ -65,7 +65,7 @@
               </li>
               
               <!-- Blog -->
-              <li class="nav-item ">
+              <li class="nav-item active">
                 <a class="nav-link" href="/blog/">blog</a>
               </li>
 
@@ -100,20 +100,115 @@
 
     <!-- Content -->
     <div class="container mt-5">
-      <!-- page.html -->
-        <div class="post">
+      <!-- _layouts/post.html -->
 
-          <header class="post-header">
-            <h1 class="post-title">Page not found</h1>
-            <p class="post-description">Looks like there has been a mistake. Nothing exists here.</p>
-          </header>
+<div class="post">
 
-          <article>
-            <p>You will be redirected to the main page within 3 seconds. If not redirected, please click <a href="https://naeunoh.github.io/">here</a>.</p>
+  <header class="post-header">
+    <h1 class="post-title">Neuroimaging - Naturalistic Data Analysis</h1>
+    <p class="post-meta">July 15, 2022</p>
+    <p class="post-tags">
+      <a href="/blog/2022"> <i class="fas fa-calendar fa-sm"></i> 2022 </a>
+        ·  
+        <a href="/blog/tag/neuroimaging">
+          <i class="fas fa-hashtag fa-sm"></i> neuroimaging</a>  
+          <a href="/blog/tag/psychology">
+          <i class="fas fa-hashtag fa-sm"></i> psychology</a>  
+          <a href="/blog/tag/analysis-methods">
+          <i class="fas fa-hashtag fa-sm"></i> analysis-methods</a>  
+          
+        ·  
+        <a href="/blog/category/neuroimaging">
+          <i class="fas fa-tag fa-sm"></i> neuroimaging</a>  
+          
 
-          </article>
+    </p>
+  </header>
 
-        </div>
+  <article class="post-content">
+    <p>The field of psychology and neuroscience is very close to each other. Both fields essentially want to understand the processes of psychological phenomena.
+Why do we study the brain processes in neuroscience with the goal of understanding psychological processes?</p>
+
+<p>Overall, neuroimaging tasks used to investigate psychological processes can be categorized into classic controlled tasks and naturalistic tasks. 
+For many years, Classic controlled tasks have been used to study the visual system, decision-making, etc.
+However, it has recently been noticed that for relatively abstract and endogenous process, such as affect or social cognition, controlled tasks with very specific predefined stimuli and controlled experimental environment may oversimplify the complex underlying processes that is actually occuring.</p>
+
+<p>I want to note that controlled tasks have effectively identified certain “complex” processes and they also have many advantages compared to naturalistic tasks.</p>
+
+<p>For the upcoming posts, I will be reviewing the various analysis methods of naturalistic tasks that reflect relatively abstract and endogenous psychological processes, such as affect and social cognition.
+The tutorials are based on <a href="https://naturalistic-data.org" target="_blank" rel="noopener noreferrer">the Naturalistic Data Analysis tutorial</a> built by multiple researchers in the social and affective neuroscience field.
+I have reorganized and re-explained the tutorials to make it more comprehensive.</p>
+
+<p>The methods described correspond to the questions asked in the various stages of naturalistic data analysis. Note that this only suggests that these methods can be used in these steps of naturalistic data analysis and their usage is not limited to the field of naturalistic tasks. In fact, they are commonly used in other types of tasks including block or event design controlled tasks, multivariate analyses, and Bayesian models.</p>
+
+<blockquote>
+  <p><strong>Research Questions &amp; Corresponding Methods for Naturalistic Tasks</strong></p>
+
+  <ol>
+    <li>How do we build models using naturalistic designs?
+      <ol>
+        <li>Indirectly model by capturing “reliable” neural responses among subjects
+          <ul>
+            <li>Minimize individual variations with Functional Alignment</li>
+            <li>Predict one’s brain activity from another : Intersubject Correlation Intersubject Functional Connectivity</li>
+            <li>Individual variations in brain activity : Intersubject Representational Similarity Analysis (IS-RSA)</li>
+            <li>Dynamic changes in ISC : Intersubject Phase Synchrony</li>
+          </ul>
+        </li>
+        <li>Explicitly annotate features of the model
+          <ul>
+            <li>Define stimuli using Automated Annotations</li>
+            <li>Define stimuli using Natural Language Processing</li>
+          </ul>
+        </li>
+      </ol>
+    </li>
+    <li>How does the brain segment information from experiences?
+      <ul>
+        <li>Event Segmentation (Hidden Markov Model, Greedy State Boundary Search)</li>
+      </ul>
+    </li>
+    <li>How do networks of brain regions dynamically reconfigure as thoughts and experiences change over time?
+      <ul>
+        <li>Hidden Semi-Markov Model</li>
+      </ul>
+    </li>
+    <li>How do networks of brain regions (FC) interact in higher order patterns?
+      <ul>
+        <li>Dynamic Connectivity</li>
+      </ul>
+    </li>
+    <li>How do we visualize complex high-dimensional data?
+      <ul>
+        <li>Embedding with Hypertools</li>
+      </ul>
+    </li>
+  </ol>
+</blockquote>
+
+<p><strong>Naturalistic Datasets</strong></p>
+
+<p>Here are some open-source fMRI datasets on naturalistic tasks.</p>
+
+<p><a href="https://www.humanconnectome.org/study/hcp-young-adult" target="_blank" rel="noopener noreferrer">Human Connectome Project 7T movie-watching data</a> (n = 184, four 15-minute movie-watching runs, many cognitive, affective, and clinical measures)</p>
+
+<p><a href="http://fcon_1000.projects.nitrc.org/indi/cmi_healthy_brain_network/index.html" target="_blank" rel="noopener noreferrer">Child Mind Institute Health Brain Network project</a> (n = 2,500+ and growing, two movie-watching runs [one 10-minute and one 3.5-minute], many cognitive, affective, and clinical measures)</p>
+
+<p><a href="https://openneuro.org/datasets/ds002345/versions/1.0.1" target="_blank" rel="noopener noreferrer">Narratives: fMRI data for evaluating models of naturalistic language comprehension</a> (n=315, auditory listening of naturalistic spoken stories [~3 to ~56 minutes], includes anatomical data)</p>
+
+<p><a href="https://openneuro.org/datasets/ds001338/versions/1.0.0" target="_blank" rel="noopener noreferrer">Paranoia: fMRI data for listening to audio narratives</a> (n=22, auditory listening of original audio narrative designed to elicit individual variation of suspicion/paranoia)</p>
+
+<p><a href="http://fcon_1000.projects.nitrc.org/indi/cmi_healthy_brain_network/" target="_blank" rel="noopener noreferrer">Child Mind Institute: Healthy Brain Network</a></p>
+
+<p><a href="https://camcan-archive.mrc-cbu.cam.ac.uk/dataaccess/" target="_blank" rel="noopener noreferrer">Cam-CAN (Cambridge Centre for Ageing Neuroscience) dataset inventory</a> (n=650, watching Hitchcock movie ‘Bang you’re dead’, many cognitive task datasets)</p>
+
+<p>There are also behavioral (only) datasets of naturalistic tasks.</p>
+
+<p><a href="https://github.com/StanfordSocialNeuroscienceLab/SEND" target="_blank" rel="noopener noreferrer">Standford Emotional Narratives Dataset</a> (n=193, videos of people recounting important and emotional life stories, and valence ratings watching the videos)</p>
+
+  </article>
+
+</div>
 
     </div>
 

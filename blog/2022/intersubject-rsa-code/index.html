@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <!-- Head -->
+  <head>        
+    <!-- Metadata, OpenGraph and Schema.org -->
+    
+
+    <!-- Standard metadata -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Naeun  Oh | Intersubject RSA Notebook</title>
+    <meta name="author" content="Naeun  Oh" />
+    <meta name="description" content="tutorial for intersubject rsa" />
+    <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website" />
+
+
+    <!-- Bootstrap & MDB -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-DF7Zhf293AJxJNTmh5zhoYYIMs2oXitRfBjY+9L//AY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous" />
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha256-i1+4qU2G2860dGGIOJscdC30s9beBXjFfzjWLjBRsBg=" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+
+    <!-- Code Syntax Highlighting -->
+    <link rel="stylesheet" href="https://gitcdn.link/repo/jwarby/jekyll-pygments-themes/master/github.css" />
+
+    <!-- Styles -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="canonical" href="https://naeunoh.github.io/blog/2022/intersubject-rsa-code/">
+
+    <!-- Dark Mode -->
+    <script src="/assets/js/theme.js"></script>
+    <script src="/assets/js/dark_mode.js"></script>
+  </head>
+
+  <!-- Body -->
+  <body class="fixed-top-nav">
+
+    <!-- Header -->
+    <header>
+
+      <!-- Nav Bar -->
+      <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+        <div class="container">
+          <a class="navbar-brand title font-weight-lighter" href="https://naeunoh.github.io/"><span class="font-weight-bold">Naeun</span>   Oh</a>
+          <!-- Navbar Toggle -->
+          <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+          </button>
+
+          <div class="collapse navbar-collapse text-right" id="navbarNav">
+            <ul class="navbar-nav ml-auto flex-nowrap">
+
+              <!-- About -->
+              <li class="nav-item ">
+                <a class="nav-link" href="/">about</a>
+              </li>
+              
+              <!-- Blog -->
+              <li class="nav-item active">
+                <a class="nav-link" href="/blog/">blog</a>
+              </li>
+
+              <!-- Other pages -->
+              <li class="nav-item ">
+                <a class="nav-link" href="/projects/">projects</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/publications/">publications</a>
+              </li>
+              <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">submenus</a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/publications/">publications</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/projects/">projects</a>
+                </div>
+              </li>
+
+              <!-- Toogle theme mode -->
+              <div class="toggle-container">
+                <a id="light-toggle">
+                  <i class="fas fa-moon"></i>
+                  <i class="fas fa-sun"></i>
+                </a>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Content -->
+    <div class="container mt-5">
+      <!-- _layouts/post.html -->
+
+<div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Intersubject RSA Notebook</h1>
+    <p class="post-meta">August 4, 2022</p>
+    <p class="post-tags">
+      <a href="/blog/2022"> <i class="fas fa-calendar fa-sm"></i> 2022 </a>
+        ·  
+        <a href="/blog/tag/neuroimaging">
+          <i class="fas fa-hashtag fa-sm"></i> neuroimaging</a>  
+          <a href="/blog/tag/psychology">
+          <i class="fas fa-hashtag fa-sm"></i> psychology</a>  
+          <a href="/blog/tag/analysis-methods">
+          <i class="fas fa-hashtag fa-sm"></i> analysis-methods</a>  
+          
+        ·  
+        <a href="/blog/category/naturalistic-data-analysis">
+          <i class="fas fa-tag fa-sm"></i> naturalistic-data-analysis</a>  
+          
+
+    </p>
+  </header>
+
+  <article class="post-content">
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">os</span>
+<span class="kn">import</span> <span class="n">glob</span>
+<span class="kn">from</span> <span class="n">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="n">scipy.stats</span> <span class="kn">import</span> <span class="n">rankdata</span><span class="p">,</span> <span class="n">ttest_rel</span><span class="p">,</span> <span class="n">ttest_1samp</span>
+
+<span class="kn">from</span> <span class="n">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="n">matplotlib.lines</span> <span class="k">as</span> <span class="n">mlines</span>
+<span class="kn">import</span> <span class="n">matplotlib.transforms</span> <span class="k">as</span> <span class="n">mtransforms</span>
+
+<span class="kn">import</span> <span class="n">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="n">seaborn</span> <span class="k">as</span> <span class="n">sns</span>
+
+<span class="kn">import</span> <span class="n">nibabel</span> <span class="k">as</span> <span class="n">nib</span>
+<span class="kn">from</span> <span class="n">nilearn.input_data</span> <span class="kn">import</span> <span class="n">NiftiLabelsMasker</span>
+<span class="kn">from</span> <span class="n">nilearn.plotting</span> <span class="kn">import</span> <span class="n">plot_glass_brain</span><span class="p">,</span> <span class="n">plot_stat_map</span><span class="p">,</span> <span class="n">view_img</span><span class="p">,</span> <span class="n">view_img_on_surf</span>
+
+<span class="kn">from</span> <span class="n">nltools.data</span> <span class="kn">import</span> <span class="n">Brain_Data</span><span class="p">,</span> <span class="n">Adjacency</span>
+<span class="kn">from</span> <span class="n">nltools.mask</span> <span class="kn">import</span> <span class="n">roi_to_brain</span><span class="p">,</span> <span class="n">expand_mask</span>
+<span class="kn">from</span> <span class="n">nltools.stats</span> <span class="kn">import</span> <span class="n">fdr</span><span class="p">,</span> <span class="n">threshold</span>
+
+<span class="kn">from</span> <span class="n">sklearn.metrics</span> <span class="kn">import</span> <span class="n">pairwise_distances</span>
+<span class="kn">from</span> <span class="n">sklearn.utils</span> <span class="kn">import</span> <span class="n">check_random_state</span>
+<span class="kn">from</span> <span class="n">sklearn.manifold</span> <span class="kn">import</span> <span class="n">TSNE</span>
+
+<span class="kn">import</span> <span class="n">datalad.api</span> <span class="k">as</span> <span class="n">dl</span>
+
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/Users/naeun-oh/miniconda3/envs/naturalistic37/lib/python3.7/site-packages/nilearn/input_data/__init__.py:27: FutureWarning: The import path 'nilearn.input_data' is deprecated in version 0.9. Importing from 'nilearn.input_data' will be possible at least until release 0.13.0. Please import from 'nilearn.maskers' instead.
+  warnings.warn(message, FutureWarning)
+It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+</code></pre></div></div>
+
+<h2 id="get-dataset-using-datalad">Get Dataset using datalad</h2>
+<p>This tutorial will be using the Paranoia dataset and the extracted ROI timeseries csv files.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># data_dir = '/Volumes/Engram/Data/Paranoia'
+</span><span class="n">data_dir</span> <span class="o">=</span> <span class="sh">'</span><span class="s">/Users/naeun-oh/Paranoia/</span><span class="sh">'</span>
+
+<span class="c1"># If dataset hasn't been installed, clone from GIN repository
+</span><span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">exists</span><span class="p">(</span><span class="n">data_dir</span><span class="p">):</span>
+    <span class="n">dl</span><span class="p">.</span><span class="nf">clone</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="sh">'</span><span class="s">https://gin.g-node.org/ljchang/Paranoia</span><span class="sh">'</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">datadir</span><span class="p">)</span>
+
+<span class="c1"># Initialize dataset
+</span><span class="n">ds</span> <span class="o">=</span> <span class="n">dl</span><span class="p">.</span><span class="nc">Dataset</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Get cropped &amp; denoised nifti files for subject's 1's run 1 
+</span><span class="n">result</span> <span class="o">=</span> <span class="n">ds</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">glob</span><span class="p">.</span><span class="nf">glob</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="sh">'</span><span class="s">fmriprep</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">*</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">func</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">sub-tb2994*denoise_smooth6mm_task-story_run-1*nii.gz</span><span class="sh">'</span><span class="p">)))</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Get cropped &amp; denoised node timeseries data for all subjects for all runs
+</span><span class="n">result</span> <span class="o">=</span> <span class="n">ds</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">glob</span><span class="p">.</span><span class="nf">glob</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="sh">'</span><span class="s">fmriprep</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">*</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">func</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">*_nodeTimeSeries.csv</span><span class="sh">'</span><span class="p">)))</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Get participant demographic/behavioral file
+</span><span class="n">result</span> <span class="o">=</span> <span class="n">ds</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="sh">'</span><span class="s">participants.tsv</span><span class="sh">'</span><span class="p">))</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1;1mget[0m([1;32mok[0m): participants.tsv ([1;35mfile[0m) [from origin...]
+</code></pre></div></div>
+
+<h2 id="behavior-data">Behavior Data</h2>
+<p>First, let’s discuss what metrics are appropriate for measuring behavioral similarity. We will run simulations and visualizations.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># First, choose number of subjects and simulate behavior chosen from random distribution
+</span><span class="n">n_subs</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">behav_raw</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="nf">randn</span><span class="p">(</span><span class="n">n_subs</span><span class="p">)</span>
+<span class="n">behav</span> <span class="o">=</span> <span class="nf">rankdata</span><span class="p">(</span><span class="n">behav_raw</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">cm</span><span class="p">.</span><span class="nf">get_cmap</span><span class="p">(</span><span class="sh">'</span><span class="s">RdYlBu_r</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">cmap</span><span class="p">.</span><span class="nf">set_bad</span><span class="p">(</span><span class="sh">'</span><span class="s">#C0C0C0</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="c1"># Define some helper functions
+</span><span class="k">def</span> <span class="nf">sort_square_mtx</span><span class="p">(</span><span class="n">mtx</span><span class="p">,</span> <span class="n">vct</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Sorts rows/columns of a matrix according to a separate vector.
+    </span><span class="sh">"""</span>
+    
+    <span class="n">inds</span> <span class="o">=</span> <span class="n">vct</span><span class="p">.</span><span class="nf">argsort</span><span class="p">()</span>
+    <span class="n">mtx_sorted</span> <span class="o">=</span> <span class="n">mtx</span><span class="p">.</span><span class="nf">copy</span><span class="p">()</span>
+    <span class="n">mtx_sorted</span> <span class="o">=</span> <span class="n">mtx_sorted</span><span class="p">[</span><span class="n">inds</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="n">mtx_sorted</span> <span class="o">=</span> <span class="n">mtx_sorted</span><span class="p">[:,</span> <span class="n">inds</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">mtx_sorted</span>
+
+<span class="k">def</span> <span class="nf">scale_mtx</span><span class="p">(</span><span class="n">mtx</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Scales a matrix to have values between 0 and 1.
+    </span><span class="sh">"""</span>
+    <span class="nf">return </span><span class="p">(</span><span class="n">mtx</span><span class="o">-</span><span class="n">np</span><span class="p">.</span><span class="nf">min</span><span class="p">(</span><span class="n">mtx</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nf">max</span><span class="p">(</span><span class="n">mtx</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="p">.</span><span class="nf">min</span><span class="p">(</span><span class="n">mtx</span><span class="p">))</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/Users/naeun-oh/miniconda3/envs/naturalistic37/lib/python3.7/site-packages/ipykernel_launcher.py:7: MatplotlibDeprecationWarning: You are modifying the state of a globally registered colormap. This has been deprecated since 3.3 and in 3.6, you will not be able to modify a registered colormap in-place. To remove this warning, you can make a copy of the colormap first. cmap = mpl.cm.get_cmap("RdYlBu_r").copy()
+  import sys
+</code></pre></div></div>
+
+<p><strong>Nearest Neighbors model</strong></p>
+
+<p>Let’s see what we are assuming the similarity structure should look like if we use Euclidean distance as our metric. The matrix below is subjects-by-subjects, with subjects ordered according to behavioral score (from low to high).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nn_mtx</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">zeros</span><span class="p">((</span><span class="n">n_subs</span><span class="p">,</span> <span class="n">n_subs</span><span class="p">))</span> <span class="c1"># initialize a similarity matrix
+</span><span class="n">noise_factor</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n_subs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n_subs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">j</span><span class="p">:</span>
+            <span class="n">dist_ij</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="nf">abs</span><span class="p">(</span><span class="n">behav</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">behav</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="o">/</span><span class="n">n_subs</span><span class="p">)</span> 
+            <span class="n">dist_ij</span> <span class="o">+=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="nf">randn</span><span class="p">()</span><span class="o">*</span><span class="n">noise_factor</span> <span class="c1"># add some random noise
+</span>            <span class="n">nn_mtx</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist_ij</span>
+            <span class="n">nn_mtx</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist_ij</span>
+            
+<span class="n">nn_mtx</span> <span class="o">=</span> <span class="nf">scale_mtx</span><span class="p">(</span><span class="n">nn_mtx</span><span class="p">)</span>
+<span class="n">np</span><span class="p">.</span><span class="nf">fill_diagonal</span><span class="p">(</span><span class="n">nn_mtx</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>    
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">subplots</span><span class="p">()</span>
+<span class="n">sns</span><span class="p">.</span><span class="nf">heatmap</span><span class="p">(</span><span class="nf">sort_square_mtx</span><span class="p">(</span><span class="n">nn_mtx</span><span class="p">,</span> <span class="n">behav</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">xticklabels</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_title</span><span class="p">(</span><span class="sh">"</span><span class="s">Nearest neighbor</span><span class="se">\n</span><span class="s">(model: Euclidean distance(i,j))</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Text(0.5, 1.0, 'Nearest neighbor\n(model: Euclidean distance(i,j))')
+</code></pre></div></div>
+
+<p><img src="/assets/img/IS-RSA/IS-RSA_9_1.png" alt="png" width="100%"></p>
+
+<p>We can see that in the NN case, we see the highest similarity right slong the diagonal. This means we’re assuming that a subject should always look most similar to his or her immediate neighbors, regardless of where they fall on the scale more generally.</p>
+
+<p>Now, compare with the <strong>Anna Karenina</strong> case using the mean.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">annak_mtx</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">zeros</span><span class="p">((</span><span class="n">n_subs</span><span class="p">,</span> <span class="n">n_subs</span><span class="p">))</span>
+<span class="n">noise_factor</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n_subs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n_subs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">j</span><span class="p">:</span>
+            <span class="n">dist_ij</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">mean</span><span class="p">([</span><span class="n">behav</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">n_subs</span><span class="p">,</span> <span class="n">behav</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">/</span><span class="n">n_subs</span><span class="p">])</span> <span class="c1"># calculate distance between i and j as 
+</span>            <span class="n">dist_ij</span> <span class="o">+=</span> <span class="nf">abs</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="nf">randn</span><span class="p">()</span><span class="o">*</span><span class="n">noise_factor</span><span class="p">)</span> <span class="c1"># add some random noise
+</span>            <span class="n">annak_mtx</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist_ij</span>
+            <span class="n">annak_mtx</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist_ij</span>
+
+<span class="n">annak_mtx</span> <span class="o">=</span> <span class="nf">scale_mtx</span><span class="p">(</span><span class="n">annak_mtx</span><span class="p">)</span>
+<span class="n">np</span><span class="p">.</span><span class="nf">fill_diagonal</span><span class="p">(</span><span class="n">annak_mtx</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">subplots</span><span class="p">()</span>
+
+<span class="c1"># Draw heatmap
+</span><span class="n">sns</span><span class="p">.</span><span class="nf">heatmap</span><span class="p">(</span><span class="nf">sort_square_mtx</span><span class="p">(</span><span class="n">annak_mtx</span><span class="p">,</span> <span class="n">behav</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">xticklabels</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="bp">False</span><span class="p">);</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_title</span><span class="p">(</span><span class="sh">"</span><span class="s">Anna Karenina</span><span class="se">\n</span><span class="s">(model: Euclidean distance(i,j))</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Text(0.5, 1.0, 'Anna Karenina\n(model: Euclidean distance(i,j))')
+</code></pre></div></div>
+
+<p><img src="/assets/img/IS-RSA/IS-RSA_11_1.png" alt="png" width="100%"></p>
+
+<p>We can see that similarity increases as we move down and to the right, meaning that we expect that high scorers will look similar to other high scorers, but lower scorers don’t look similar to one another or to high scorers.</p>
+
+<p>Another way to visualize the similarity structure of these matrices is to project them into a two-dimensional embedding using <strong>t-SNE (t-Distributed Stochastic Neighbor Embedding)</strong>. In the righthand panels in the figure below, each dor represents a subject, and subjects are colored according to their behavioral score. In this embedding, similar observations (subjects) appear nearby, while dissimilar observations appear further away. (You can ingore the component axes for interpretation)</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">list_of_matrices</span> <span class="o">=</span> <span class="p">[</span><span class="n">nn_mtx</span><span class="p">,</span> <span class="n">annak_mtx</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">subplots</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">list_of_matrices</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">m</span><span class="p">,</span> <span class="n">mtx</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">list_of_matrices</span><span class="p">):</span>
+    <span class="n">ax1</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">m</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    
+    <span class="c1"># Draw heatmap
+</span>    <span class="k">if</span> <span class="n">m</span> <span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">cbar</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">cbar</span> <span class="o">=</span> <span class="bp">False</span>
+        
+    <span class="n">sns</span><span class="p">.</span><span class="nf">heatmap</span><span class="p">(</span><span class="nf">sort_square_mtx</span><span class="p">(</span><span class="n">mtx</span><span class="p">,</span> <span class="n">behav</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span> 
+                <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="n">cbar</span><span class="p">,</span> <span class="n">cbar_kws</span> <span class="o">=</span> <span class="p">{</span><span class="sh">'</span><span class="s">label</span><span class="sh">'</span><span class="p">:</span> <span class="sh">'</span><span class="s">Similarity</span><span class="sh">'</span><span class="p">},</span>
+                <span class="n">xticklabels</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    
+    <span class="c1"># Draw tSNE plot
+</span>    <span class="c1"># Note that TSNE operates on distance matrices, so because our simlarity matrices are already scaled 
+</span>    <span class="c1"># to be between 0 and 1, we can convert easily by doing (1 – similarity matrix)
+</span>    <span class="n">isc_embedded</span> <span class="o">=</span> <span class="nc">TSNE</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="sh">"</span><span class="s">precomputed</span><span class="sh">"</span><span class="p">).</span><span class="nf">fit_transform</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">mtx</span><span class="p">)</span> 
+    <span class="n">scatter_p</span> <span class="o">=</span> <span class="n">ax2</span><span class="p">.</span><span class="nf">scatter</span><span class="p">(</span><span class="n">isc_embedded</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">isc_embedded</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">behav</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="p">.</span><span class="nf">set_xticks</span><span class="p">([])</span>
+    <span class="n">ax2</span><span class="p">.</span><span class="nf">set_yticks</span><span class="p">([])</span>
+    
+    <span class="k">if</span> <span class="n">m</span> <span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">ax2</span><span class="p">.</span><span class="nf">set_xlabel</span><span class="p">(</span><span class="sh">'</span><span class="s">Component 1</span><span class="sh">'</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="p">.</span><span class="nf">set_ylabel</span><span class="p">(</span><span class="sh">'</span><span class="s">Component 2</span><span class="sh">'</span><span class="p">)</span>
+        <span class="c1"># cbar.ax2.set_xticklabels(['Low', 'High'])
+</span>        
+    <span class="n">ax2</span><span class="p">.</span><span class="nf">axis</span><span class="p">(</span><span class="sh">'</span><span class="s">square</span><span class="sh">'</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="n">xlim</span> <span class="o">=</span> <span class="n">ax2</span><span class="p">.</span><span class="nf">get_xlim</span><span class="p">(),</span> <span class="n">ylim</span> <span class="o">=</span> <span class="n">ax2</span><span class="p">.</span><span class="nf">get_ylim</span><span class="p">())</span>
+
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="p">.</span><span class="nf">colorbar</span><span class="p">(</span><span class="n">scatter_p</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">ticks</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">cbar</span><span class="p">.</span><span class="n">ax</span><span class="p">.</span><span class="nf">set_yticklabels</span><span class="p">([</span><span class="sh">'</span><span class="s">Low</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">High</span><span class="sh">'</span><span class="p">])</span>
+<span class="n">cbar</span><span class="p">.</span><span class="nf">set_label</span><span class="p">(</span><span class="sh">'</span><span class="s">Behavior score</span><span class="sh">'</span><span class="p">,</span> <span class="n">labelpad</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="nf">tight_layout</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="/assets/img/IS-RSA/IS-RSA_13_0.png" alt="png" width="100%"></p>
+
+<p>In this study, the main variable of interest was trait paranoia, which was measured using the Paranoid Thoughts Scale A (Green et al., 2008). This is a self-report questionnaire that asks participants to rate how strongly they agree with statements relating to paranoid ideation over the last month. Some examples are : “I spent time thinking about friends gossiping about me”, “People have been dropping hints for me”, “I was frustrated by people laughing at me.” There are 16 items and each item is rated on a scale from 1 (not at all) to 5 (totally). Therefore, the minimum possible score is 16 and maximum possible score is 80.</p>
+
+<p>This was a sample of all healthy participants (no diagnosis of schizophrenia or other mental illness) so we expect most scores to be on the lower end of the spectrum. Still, trait paranoia varies even among the general population, and this study was designed to look at how normative variation in this trait relates to brain responses to an ambiguous social narrative.</p>
+
+<p>Note that trait measures suffer from a number of issues (e.g. self-report) but are still commonly used. 
+IS-RSA can be used with any type of subject level data including behavioral data (Chen et al., 2020) or a computational model (van Barr et al., 2019)</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Check demographic and behavioral info of participants
+</span><span class="n">behav_data</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="sh">'</span><span class="s">participants.tsv</span><span class="sh">'</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="sh">'</span><span class="se">\t</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">behav_data</span><span class="p">.</span><span class="nf">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>participant_id</th>
+      <th>age</th>
+      <th>sex</th>
+      <th>gptsa_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sub-tb2994</td>
+      <td>27</td>
+      <td>M</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>sub-tb3132</td>
+      <td>28</td>
+      <td>F</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>sub-tb3240</td>
+      <td>25</td>
+      <td>M</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>sub-tb3279</td>
+      <td>20</td>
+      <td>M</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>sub-tb3512</td>
+      <td>34</td>
+      <td>M</td>
+      <td>18</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Histogram of GPTS-A scores
+</span><span class="n">behav</span> <span class="o">=</span> <span class="n">behav_data</span><span class="p">[</span><span class="sh">"</span><span class="s">gptsa_score</span><span class="sh">"</span><span class="p">]</span>
+
+<span class="n">sns</span><span class="p">.</span><span class="nf">displot</span><span class="p">(</span><span class="n">behav</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;seaborn.axisgrid.FacetGrid at 0x7fdb6a651b90&gt;
+</code></pre></div></div>
+
+<p><img src="/assets/img/IS-RSA/IS-RSA_16_1.png" alt="png" width="100%"></p>
+
+<p>GPTS-A scores follow a pretty skewed distribution in our sample of 22 participants, with most participants scoring fairly low and only a couple scoring higher. This is not necessarily ideal but also not uncommon for a scale like this. For some analyses, we might be worried about these two extreme values driving some or all of our effects, but in RSA it’s common to use <strong>rank-based similarity metrics</strong> (i.e. Spearman correlation instead of Pearson). This means that subjects are not their absolute score, but rather their rank relative to other subjects, thus these two extreme scorers will not be overweighted.</p>
+
+<p>In our case, you can think of our behavior as following a uniform distribution of ranks between 1-22, with some ties where 2 or more subjects had the same raw score.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">behav_rank</span> <span class="o">=</span> <span class="nf">rankdata</span><span class="p">(</span><span class="n">behav</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="p">.</span><span class="nf">histplot</span><span class="p">(</span><span class="n">behav_rank</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="c1">#sns.countplot(behav_rank)
+</span></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;AxesSubplot:ylabel='Count'&gt;
+</code></pre></div></div>
+
+<p><img src="/assets/img/IS-RSA/IS-RSA_18_1.png" alt="png" width="100%"></p>
+
+<h2 id="brain-data">Brain data</h2>
+
+<p>We will use a functional parcellation called the <strong>Shen atlas (Shen et al., 2013)</strong>. Let’s load our parcellation image and initialize a masker object from nilearn that will allow us to average voxels in each individual node.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mask</span> <span class="o">=</span> <span class="nc">Brain_Data</span><span class="p">(</span><span class="sh">'</span><span class="s">https://neurovault.org/media/images/8423/shen_2mm_268_parcellation.nii.gz</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">mask</span><span class="p">.</span><span class="nf">plot</span><span class="p">()</span>
+
+<span class="n">masker</span> <span class="o">=</span> <span class="nc">NiftiLabelsMasker</span><span class="p">(</span><span class="n">labels_img</span><span class="o">=</span><span class="n">mask</span><span class="p">.</span><span class="nf">to_nifti</span><span class="p">(),</span> <span class="n">standardize</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="/assets/img/IS-RSA/IS-RSA_20_0.png" alt="png" width="100%"></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Try the masker on the first subject to see if it's working
+</span><span class="n">sub</span> <span class="o">=</span> <span class="sh">'</span><span class="s">sub-tb2994</span><span class="sh">'</span>
+<span class="n">fmri_file</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="sh">'</span><span class="s">fmriprep</span><span class="sh">'</span><span class="p">,</span> <span class="n">sub</span><span class="p">,</span> <span class="sh">'</span><span class="s">func</span><span class="sh">'</span><span class="p">,</span> <span class="sa">f</span><span class="sh">'</span><span class="si">{</span><span class="n">sub</span><span class="si">}</span><span class="s">_denoise_smooth6mm_task-story_run-1_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="n">time_series</span> <span class="o">=</span> <span class="n">masker</span><span class="p">.</span><span class="nf">fit_transform</span><span class="p">(</span><span class="n">fmri_file</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">time_series</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="p">.</span><span class="nf">heatmap</span><span class="p">(</span><span class="n">time_series</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="sh">'</span><span class="s">RdBu_r</span><span class="sh">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(526, 268)
+
+&lt;AxesSubplot:&gt;
+</code></pre></div></div>
+
+<p><img src="/assets/img/IS-RSA/IS-RSA_21_2.png" alt="png" width="100%"></p>
+
+<p>The array has the correct shape : 526 TRs (the length of run 1) x 268 nodes. When we visualize it as a heatmap we can see that values look reasonable : centered around 0 (which we would expect given that the masker function normalized the data by default), and no stripe-y-artifacts that look too concerning.</p>
+
+<p>Next, we’ll create node time series for all subjects for all runs. There are 22 subjects, each with 3 runs, so this will take a while. To speed this up, we have already run the code and shared the extracted csv files in the datalad repository.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Run this if you want to extract data yourself, after the correct data is downloaded
+</span>
+<span class="n">subj_list</span> <span class="o">=</span> <span class="n">behav_data</span><span class="p">[</span><span class="sh">"</span><span class="s">participant_id</span><span class="sh">"</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">subj</span> <span class="ow">in</span> <span class="n">subj_list</span><span class="p">:</span>    
+    <span class="k">for</span> <span class="n">run</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span>
+        <span class="n">time_series_fname</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="sh">'</span><span class="s">fmriprep</span><span class="sh">'</span><span class="p">,</span> <span class="n">subj</span><span class="p">,</span> <span class="sh">'</span><span class="s">func</span><span class="sh">'</span><span class="p">,</span> <span class="sa">f</span><span class="sh">'</span><span class="si">{</span><span class="n">subj</span><span class="si">}</span><span class="s">_run-</span><span class="si">{</span><span class="n">run</span><span class="si">}</span><span class="s">_nodeTimeSeries.csv</span><span class="sh">'</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">exists</span><span class="p">(</span><span class="n">time_series_fname</span><span class="p">):</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Node time series file for </span><span class="si">{</span><span class="n">subj</span><span class="si">}</span><span class="s">, run </span><span class="si">{</span><span class="n">run</span><span class="si">}</span><span class="s"> already exists!</span><span class="sh">"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Creating node time series for </span><span class="si">{</span><span class="n">subj</span><span class="si">}</span><span class="s">, run </span><span class="si">{</span><span class="n">run</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+            <span class="n">time_series</span> <span class="o">=</span> <span class="n">masker</span><span class="p">.</span><span class="nf">fit_transform</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="sh">'</span><span class="s">fmriprep</span><span class="sh">'</span><span class="p">,</span> <span class="n">subj</span><span class="p">,</span> <span class="sh">'</span><span class="s">func</span><span class="sh">'</span><span class="p">,</span> <span class="sa">f</span><span class="sh">'</span><span class="si">{</span><span class="n">subj</span><span class="si">}</span><span class="s">_denoise_smooth6mm_task-story_run-</span><span class="si">{</span><span class="n">run</span><span class="si">}</span><span class="s">_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz</span><span class="sh">'</span><span class="p">))</span>
+            <span class="n">pd</span><span class="p">.</span><span class="nc">DataFrame</span><span class="p">(</span><span class="n">time_series</span><span class="p">).</span><span class="nf">to_csv</span><span class="p">(</span><span class="n">time_series_fname</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Load text files containing the nodewise timeseries. 
+# As we load them, we stack them into a 3d array that is subjects x TRs x nodes.
+</span><span class="n">subj_list</span> <span class="o">=</span> <span class="n">behav_data</span><span class="p">[</span><span class="sh">"</span><span class="s">participant_id</span><span class="sh">"</span><span class="p">]</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">subj</span> <span class="ow">in</span> <span class="n">subj_list</span><span class="p">:</span>
+    <span class="n">sub_data</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">run</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>
+        <span class="n">sub_data</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="sh">'</span><span class="s">fmriprep</span><span class="sh">'</span><span class="p">,</span> <span class="n">subj</span><span class="p">,</span> <span class="sh">'</span><span class="s">func</span><span class="sh">'</span><span class="p">,</span> <span class="sa">f</span><span class="sh">'</span><span class="si">{</span><span class="n">subj</span><span class="si">}</span><span class="s">_run-</span><span class="si">{</span><span class="n">run</span><span class="si">}</span><span class="s">_nodeTimeSeries.csv</span><span class="sh">'</span><span class="p">)))</span>
+    <span class="n">sub_data</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">concat</span><span class="p">(</span><span class="n">sub_data</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">sub_data</span><span class="p">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span><span class="p">.</span><span class="n">shape</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(22, 1310, 268)
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Save the dimensions :
+# 22 subjects x 1310 TRs (number of timepoints in all runs) x 268 nodes
+</span>
+<span class="n">n_subs</span><span class="p">,</span> <span class="n">n_ts</span><span class="p">,</span> <span class="n">n_nodes</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">shape</span>
+</code></pre></div></div>
+
+<h2 id="calculate-brain-similarity">Calculate Brain Similarity</h2>
+
+<p>We will use <strong>intersubject correlation (ISC)</strong> as our measure of brain similarity. ISC is the Pearson correlation of activity in the same spatial location across two or more subjects. Because all subjects heard the same time-locked story, any correlated activity across brains likely reflect processing of the stimulus.</p>
+
+<p>Keep in mind that, in theory, we could calculate brain similarity based on any type of information we can extract from single subjects’ neuroimaging data. For now, we use ISC because it is straightforward to compute, visualize, and interpret.</p>
+
+<p>We’ll calculate one ISC matrix (dims subjects x subjects) for each of out 268 nodes. We use pairwise_distances from scikit learn to comput the distance matrix as it is much faster than np.corrcoef and can comput many different types of distance. When we use correlation, we can easily convert it into similarity by subtracting the values from 1. (1 - distance = similarity). We also store the similarity/distance matrices in an nltools.data.Adjacency instance to make it easier to perform operations on the matrix.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">similarity_matrices</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n_nodes</span><span class="p">):</span>
+    <span class="n">similarity_matrices</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nc">Adjacency</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="nf">pairwise_distances</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">node</span><span class="p">],</span> <span class="n">metric</span><span class="o">=</span><span class="sh">'</span><span class="s">correlation</span><span class="sh">'</span><span class="p">),</span> <span class="n">matrix_type</span><span class="o">=</span><span class="sh">'</span><span class="s">similarity</span><span class="sh">'</span><span class="p">))</span>
+<span class="n">similarity_matrices</span> <span class="o">=</span> <span class="nc">Adjacency</span><span class="p">(</span><span class="n">similarity_matrices</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Visualize one matrix
+</span><span class="n">similarity_matrices</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">plot</span><span class="p">(</span><span class="n">vmin</span><span class="o">=-</span><span class="p">.</span><span class="mi">25</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="p">.</span><span class="mi">25</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="sh">'</span><span class="s">RdBu_r</span><span class="sh">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="/assets/img/IS-RSA/IS-RSA_29_0.png" alt="png" width="100%"></p>
+
+<p>This looks reasonable: most values are positive (negative distance is not interpretable?), and there is some variance in correlation strength across subject pairs. (Ignore the diagonal as they are perfect correlations to themselves)</p>
+
+<p>Let’s see which nodes show the highest ISC across the whole group. We will compute the mean (or median) of the lower triangle of the matrix using the Adjacency.isc method. We could also get the p-values using the subject-wise bootstrapping method (Chen et al., 2016).</p>
+
+<p>To make the code more concise, we run this using a dictionary comprehension which is like an inplace for loop that creates a Python dictionary.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">isc</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span><span class="n">similarity_matrices</span><span class="p">[</span><span class="n">node</span><span class="p">].</span><span class="nf">isc</span><span class="p">(</span><span class="n">metric</span><span class="o">=</span><span class="sh">'</span><span class="s">mean</span><span class="sh">'</span><span class="p">,</span> <span class="n">n_bootstraps</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="sh">'</span><span class="s">isc</span><span class="sh">'</span><span class="p">]</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n_nodes</span><span class="p">)}</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">expand_mask</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nltools.data.brain_data.Brain_Data(data=(268, 238955), Y=0, X=(0, 0), mask=MNI152_T1_2mm_brain_mask.nii.gz)
+</code></pre></div></div>
+
+<p>We can combine the ISC values with the Shen k=268 mask to plot the ISC values on the brain. The nltools.mask.roi_to_brain function needs an array of ISC values in an order that corresponds to an image with a binary mask for eabch ROI. We create that using the nltools.mask.expand_mask function. Finally, we plot the results using any of the nilearn plotting functions by casting our Brain_Data instance back into a nibabel instance with the .to_nifti() method.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">isc_brain</span> <span class="o">=</span> <span class="nf">roi_to_brain</span><span class="p">(</span><span class="n">pd</span><span class="p">.</span><span class="nc">Series</span><span class="p">(</span><span class="n">isc</span><span class="p">),</span> <span class="nf">expand_mask</span><span class="p">(</span><span class="n">mask</span><span class="p">))</span>
+
+<span class="nf">plot_glass_brain</span><span class="p">(</span><span class="n">isc_brain</span><span class="p">.</span><span class="nf">to_nifti</span><span class="p">())</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;nilearn.plotting.displays._projectors.OrthoProjector at 0x7fdb6bc0fad0&gt;
+</code></pre></div></div>
+
+<p><img src="/assets/img/IS-RSA/IS-RSA_34_1.png" alt="png" width="100%"></p>
+
+<p>It looks like the highest synchrony was in the superior temporal cortex, which makes sense given that these areas are involved in auditory processing and language. Visual regions aren’y particularly synchronized, which also makes sense since this was a purely audio story. But there is also some interesting synchrony in the temporo-parietal junction, anterior temporal lobe, parts of the prefrontal cortex, and posterior cerebellum. This may be a hint that above and beyond receiving the same low-level auditory and linguistic input, participants’ higher-level processing of the stimulus may have been somewhat similar as well.</p>
+
+<p>That was a good sanity check, but what we really want to know is where ISC is higher among pairs of participants that are also more similar in behavior score.</p>
+
+<h2 id="calculate-behavior-similarity">Calculate Behavior Similarity</h2>
+<p>There are multiple ways to calculate behavioral similarity, and the metric we choose both implies something about our assumptions for what the similarity structure should look like and affects how we interpret results.</p>
+
+<p>Let’s extract our vector of scores for the behavior we’re interested in.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">behav</span> <span class="o">=</span> <span class="n">behav_data</span><span class="p">[</span><span class="sh">"</span><span class="s">gptsa_score</span><span class="sh">"</span><span class="p">]</span>
+<span class="n">behav_rank</span> <span class="o">=</span> <span class="nf">rankdata</span><span class="p">(</span><span class="n">behav</span><span class="p">)</span> <span class="c1"># explicity convert the raw scores to ranks
+</span></code></pre></div></div>
+
+<p>We will explore both types of similarity structures presented above (nearest-neighbor and Anna K) to see which is a better fit for our data.</p>
+
+<p>We’ll start by calculating the “nearest-neighbors” behavioral similarity matrix. The metric is Euclidean distance, or the difference between two subject’s ranks. While RSA operates equally well on similarity and distance matrices, it is a bit easier to keep things straigt when both behavioral and ISC matrices are of the same type.
+As ISC is inherently a similarity measure (higher score = more similar), and Euclidean distance is inherently a distance measure (higher score = less similar), we’ll convert the Euclidian distances to similarities using the Adjacency.distance_to_similarity method.
+This makes it more straighforward when interpreting positive RSA r-values as reflecting a higher representational similarity between brain and behavior.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Nearest Neighbors
+</span><span class="n">behav_sim_nn</span> <span class="o">=</span> <span class="nc">Adjacency</span><span class="p">(</span><span class="nf">pairwise_distances</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nf">reshape</span><span class="p">(</span><span class="n">behav_rank</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">metric</span><span class="o">=</span><span class="sh">'</span><span class="s">euclidean</span><span class="sh">'</span><span class="p">),</span> <span class="n">matrix_type</span><span class="o">=</span><span class="sh">'</span><span class="s">distance</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">behav_sim_nn</span> <span class="o">=</span> <span class="n">behav_sim_nn</span><span class="p">.</span><span class="nf">distance_to_similarity</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">behav_sim_nn</span><span class="p">.</span><span class="nf">plot</span><span class="p">(</span><span class="n">axes</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="p">.</span><span class="nf">set_title</span><span class="p">(</span><span class="sh">"</span><span class="s">Behavioral similarity matrix before sorting</span><span class="sh">"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="c1"># Sort subjects in order of score rank from low to high
+</span><span class="n">sns</span><span class="p">.</span><span class="nf">heatmap</span><span class="p">(</span><span class="nf">sort_square_mtx</span><span class="p">(</span><span class="n">behav_sim_nn</span><span class="p">.</span><span class="nf">squareform</span><span class="p">(),</span> <span class="n">behav</span><span class="p">),</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">ax2</span><span class="p">.</span><span class="nf">set_title</span><span class="p">(</span><span class="sh">"</span><span class="s">Behavioral similarity matrix after sorting</span><span class="sh">"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Text(0.5, 1.0, 'Behavioral similarity matrix after sorting')
+</code></pre></div></div>
+
+<p><img src="/assets/img/IS-RSA/IS-RSA_39_1.png" alt="png" width="100%"></p>
+
+<p>After sorting subjects in order of paranoia score rank, the expected diagonal structure, where each subject is more similar to its immediate neighbors, become clearly visible. However, this matrix is only for purposes of visualization. For our IS-RSA analyses, we want to use the original matrix to make sure that subject order matches our ISC matrices.</p>
+
+<p>Now, we’ll construct behavioral similarity matrix reflecting the “Anna Karenina” structure. The metric for this is the mean of two subjects’ ranks, which we’ll normalize by the highest possible rank (the number of subjects).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Anna Karenina
+</span><span class="n">behav_sim_annak</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">zeros</span><span class="p">((</span><span class="n">n_subs</span><span class="p">,</span> <span class="n">n_subs</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n_subs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n_subs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">j</span><span class="p">:</span>
+            <span class="n">sim_ij</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">mean</span><span class="p">([</span><span class="n">behav_rank</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">behav_rank</span><span class="p">[</span><span class="n">j</span><span class="p">]])</span><span class="o">/</span><span class="n">n_subs</span>
+            <span class="n">behav_sim_annak</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">sim_ij</span>
+            <span class="n">behav_sim_annak</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">sim_ij</span>
+        <span class="k">elif</span> <span class="n">i</span><span class="o">==</span><span class="n">j</span><span class="p">:</span>
+            <span class="n">behav_sim_annak</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Adjacency class represents adjacency matrices as a vector rather than a 2-d matrix
+</span><span class="n">behav_sim_annak</span> <span class="o">=</span> <span class="nc">Adjacency</span><span class="p">(</span><span class="n">behav_sim_annak</span><span class="p">,</span> <span class="n">matrix_type</span><span class="o">=</span><span class="sh">'</span><span class="s">similarity</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">behav_sim_annak</span><span class="p">.</span><span class="nf">plot</span><span class="p">(</span><span class="n">axes</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="p">.</span><span class="nf">set_title</span><span class="p">(</span><span class="sh">"</span><span class="s">Behavioral similarity matrix before sorting</span><span class="sh">"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="p">.</span><span class="nf">heatmap</span><span class="p">(</span><span class="nf">sort_square_mtx</span><span class="p">(</span><span class="n">behav_sim_annak</span><span class="p">.</span><span class="nf">squareform</span><span class="p">(),</span> <span class="n">behav</span><span class="p">),</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">ax2</span><span class="p">.</span><span class="nf">set_title</span><span class="p">(</span><span class="sh">"</span><span class="s">Behavioral similarity matrix after sorting</span><span class="sh">"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Text(0.5, 1.0, 'Behavioral similarity matrix after sorting')
+</code></pre></div></div>
+
+<p><img src="/assets/img/IS-RSA/IS-RSA_41_1.png" alt="png" width="100%"></p>
+
+<p>Is it what we expected in the sorted similarity matrix?
+Similarity increases as you move down and to the right, reflecting the idea that pairs of participants that score higher on trait paranoia should be more similarity than pairs of low-scoring participants.</p>
+
+<p>One convenient feature of operationalizing the similarity matrix in this way is that the same model can detect effects in both directions, based on the sign of the resulting r-value between brain and behavioral similarity matrices. If high scorers are alike and low scorers different, the resulting r-value would be positive; if low scorers are alike and high scorers different, it would be negative. This means we don’t have to run two different models to check for effects in different directions.</p>
+
+<h2 id="compute-is-rsa">Compute IS-RSA</h2>
+<p>Now that we have similarity matrices for both brain and behavior data, we can do intersubject RSA.</p>
+
+<p>Rather than finding the central tendency of the pairwise relationships, or the reliability of the signal, by computing the mean for ISC we instead explore that structure of the variations in the pairwise relationships with IS-RSA. This is computed using representational similarity analysis, where we vectorize the lower triangle of the pairwise neural ISC and correlate it with the vectorized lower triangle of the pairwise behavioral ISC. Because we don’t necessarily assume that there will be a linear relationship, particularly as we used different distance metrics (i.e. correlation and euclidean distance), we typically use Spearman 𝜌 ranked correlations.</p>
+
+<p>Let’s loop over nodes and compute the similarity between the brain (similarity_matrices) and each of the competing hypothesis reflected in the NN and AnnaK similarity matrices (behav_sim_nn, behav_sim_annak).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">isrsa_nn</span><span class="p">,</span> <span class="n">isrsa_annak</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">similarity_matrices</span><span class="p">)):</span>
+    <span class="n">isrsa_nn</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="n">similarity_matrices</span><span class="p">[</span><span class="n">node</span><span class="p">].</span><span class="nf">similarity</span><span class="p">(</span><span class="n">behav_sim_nn</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="sh">'</span><span class="s">spearman</span><span class="sh">'</span><span class="p">,</span> <span class="n">n_permute</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span> <span class="p">)[</span><span class="sh">'</span><span class="s">correlation</span><span class="sh">'</span><span class="p">]</span>
+    <span class="n">isrsa_annak</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="n">similarity_matrices</span><span class="p">[</span><span class="n">node</span><span class="p">].</span><span class="nf">similarity</span><span class="p">(</span><span class="n">behav_sim_annak</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="sh">'</span><span class="s">spearman</span><span class="sh">'</span><span class="p">,</span> <span class="n">n_permute</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span> <span class="p">)[</span><span class="sh">'</span><span class="s">correlation</span><span class="sh">'</span><span class="p">]</span>
+
+<span class="c1"># Plot correlation values back on the brain
+</span><span class="n">isrsa_nn_brain</span> <span class="o">=</span> <span class="nf">roi_to_brain</span><span class="p">(</span><span class="n">pd</span><span class="p">.</span><span class="nc">Series</span><span class="p">(</span><span class="n">isrsa_nn</span><span class="p">),</span> <span class="nf">expand_mask</span><span class="p">(</span><span class="n">mask</span><span class="p">))</span>
+<span class="n">isrsa_annak_brain</span> <span class="o">=</span> <span class="nf">roi_to_brain</span><span class="p">(</span><span class="n">pd</span><span class="p">.</span><span class="nc">Series</span><span class="p">(</span><span class="n">isrsa_annak</span><span class="p">),</span> <span class="nf">expand_mask</span><span class="p">(</span><span class="n">mask</span><span class="p">))</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Plot an axial montage of each of the ISRSA maps using the same colorscale to make it easier to compare
+</span>
+<span class="c1"># Find the max absolute magnitude r_val across both sets of results so we can plot using the same colorscale
+</span><span class="n">vmax</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">max</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nf">abs</span><span class="p">([</span><span class="nf">list</span><span class="p">(</span><span class="n">isrsa_nn</span><span class="p">.</span><span class="nf">values</span><span class="p">()),</span> <span class="nf">list</span><span class="p">(</span><span class="n">isrsa_annak</span><span class="p">.</span><span class="nf">values</span><span class="p">())]))</span>
+
+<span class="nf">plot_stat_map</span><span class="p">(</span><span class="n">isrsa_nn_brain</span><span class="p">.</span><span class="nf">to_nifti</span><span class="p">(),</span> <span class="n">display_mode</span><span class="o">=</span><span class="sh">'</span><span class="s">z</span><span class="sh">'</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="sh">"</span><span class="s">NN</span><span class="sh">"</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="sh">'</span><span class="s">RdBu_r</span><span class="sh">'</span><span class="p">)</span>
+<span class="nf">plot_stat_map</span><span class="p">(</span><span class="n">isrsa_annak_brain</span><span class="p">.</span><span class="nf">to_nifti</span><span class="p">(),</span> <span class="n">display_mode</span><span class="o">=</span><span class="sh">'</span><span class="s">z</span><span class="sh">'</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="sh">"</span><span class="s">AnnaK</span><span class="sh">"</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="sh">'</span><span class="s">RdBu_r</span><span class="sh">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/Users/naeun-oh/miniconda3/envs/naturalistic37/lib/python3.7/site-packages/nilearn/plotting/img_plotting.py:300: FutureWarning: Default resolution of the MNI template will change from 2mm to 1mm in version 0.10.0
+  anat_img = load_mni152_template()
+
+&lt;nilearn.plotting.displays._slicers.ZSlicer at 0x7fdaa0162e10&gt;
+</code></pre></div></div>
+
+<p><img src="/assets/img/IS-RSA/IS-RSA_46_2.png" alt="png" width="100%"></p>
+
+<p><img src="/assets/img/IS-RSA/IS-RSA_46_3.png" alt="png" width="100%"></p>
+
+<p>Some of the nodes with the highest IS-RSA values for the nearest neighbor model are in the angular gyrus/temporo-parietal junction (typical “default mode” region), and the lateral prefrontal cortex. The Anna Karenina model also has high IS-RSA values in the angular gyrus, but also in the PCC and dACC.</p>
+
+<h2 id="comparing-different-models">Comparing different models</h2>
+<p>We can look at the distribution of RSA r-values across all nodes to see if there is generally some level of representational similarity between brain and behavior. We can test if this distribution is significantly shifted from zero using a one-sample t-test. Note that this doesn’t tell us which, if any, individual nodes show significant representational similarity, but it can tell us if there is significant representational similarity at the whole-brain level.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">sns</span><span class="p">.</span><span class="nf">histplot</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">isrsa_nn</span><span class="p">.</span><span class="nf">values</span><span class="p">()),</span> <span class="n">ax</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sh">'</span><span class="s">gray</span><span class="sh">'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="sh">'</span><span class="s">--</span><span class="sh">'</span><span class="p">);</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">set_ylabel</span><span class="p">(</span><span class="sh">'</span><span class="s">Frequency</span><span class="sh">'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">set_xlabel</span><span class="p">(</span><span class="sh">'</span><span class="s">Correlation</span><span class="sh">'</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">set_title</span><span class="p">(</span><span class="sh">'</span><span class="s">Nearest Neighbor Node IS-RSA</span><span class="sh">'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="nf">ttest_1samp</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">isrsa_nn</span><span class="p">.</span><span class="nf">values</span><span class="p">()),</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">annotate</span><span class="p">(</span><span class="sa">f</span><span class="sh">'</span><span class="s">t=</span><span class="si">{</span><span class="n">t</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">, p = </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="p">.</span><span class="mi">03</span><span class="n">f</span><span class="si">}</span><span class="sh">'</span><span class="p">,</span> <span class="n">xy</span> <span class="o">=</span> <span class="p">(.</span><span class="mi">2</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sh">'</span><span class="s">gray</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="p">.</span><span class="nf">histplot</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">isrsa_annak</span><span class="p">.</span><span class="nf">values</span><span class="p">()),</span> <span class="n">ax</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nf">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sh">'</span><span class="s">gray</span><span class="sh">'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="sh">'</span><span class="s">--</span><span class="sh">'</span><span class="p">);</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nf">set_ylabel</span><span class="p">(</span><span class="sh">'</span><span class="s">Frequency</span><span class="sh">'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nf">set_xlabel</span><span class="p">(</span><span class="sh">'</span><span class="s">Correlation</span><span class="sh">'</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nf">set_title</span><span class="p">(</span><span class="sh">'</span><span class="s">Anna Karenina Node IS-RSA</span><span class="sh">'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="nf">ttest_1samp</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">isrsa_annak</span><span class="p">.</span><span class="nf">values</span><span class="p">()),</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nf">annotate</span><span class="p">(</span><span class="sa">f</span><span class="sh">'</span><span class="s">t=</span><span class="si">{</span><span class="n">t</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">, p = </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="p">.</span><span class="mi">03</span><span class="n">f</span><span class="si">}</span><span class="sh">'</span><span class="p">,</span> <span class="n">xy</span> <span class="o">=</span> <span class="p">(.</span><span class="mi">2</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sh">'</span><span class="s">gray</span><span class="sh">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Text(0.2, 40, 't=13.75, p = 0.000')
+</code></pre></div></div>
+
+<p><img src="/assets/img/IS-RSA/IS-RSA_49_1.png" alt="png" width="100%"></p>
+
+<p>We see that the values are <strong>generally shifted positive</strong> (the expected direction), meaning that there is more representational similarity between brain and behavior than we would expect by chance.</p>
+
+<p>We can also test if the mean of the two distributions are significantly different from each other using a <strong>paired samples t-test</strong>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sns</span><span class="p">.</span><span class="nf">histplot</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">isrsa_nn</span><span class="p">.</span><span class="nf">values</span><span class="p">()))</span>
+<span class="n">sns</span><span class="p">.</span><span class="nf">displot</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">isrsa_annak</span><span class="p">.</span><span class="nf">values</span><span class="p">()))</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">legend</span><span class="p">([</span><span class="sh">'</span><span class="s">Nearest Neighbor</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">Anna Karenina</span><span class="sh">'</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="sh">'</span><span class="s">Overall distribution of ISRSA Values across all nodes</span><span class="sh">'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">gca</span><span class="p">().</span><span class="nf">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sh">'</span><span class="s">gray</span><span class="sh">'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="sh">'</span><span class="s">--</span><span class="sh">'</span><span class="p">);</span>
+
+<span class="n">t</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="nf">ttest_rel</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">isrsa_nn</span><span class="p">.</span><span class="nf">values</span><span class="p">()),</span> <span class="nf">list</span><span class="p">(</span><span class="n">isrsa_annak</span><span class="p">.</span><span class="nf">values</span><span class="p">()))</span>
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">'</span><span class="s">t=</span><span class="si">{</span><span class="n">t</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">, p = </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="p">.</span><span class="mi">03</span><span class="n">f</span><span class="si">}</span><span class="sh">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>t=-7.43, p = 0.000
+</code></pre></div></div>
+
+<p><img src="/assets/img/IS-RSA/IS-RSA_51_1.png" alt="png" width="100%"></p>
+
+<p><img src="/assets/img/IS-RSA/IS-RSA_51_2.png" alt="png" width="100%"></p>
+
+<p>Another way to visually compare results from the two models is with a <strong>scatterplot</strong>. Each dot is a node, and we also plot the identity line (where y=x, not the regression line). If the NN and AnnaK models gave identical results, all the dots would fall on this diagonal line. If some dots are above and some dots are below, it means that different nodes are best fit by different models (some by NN, others by AnnaK). If most of the dots are above (rather than below) the line, it means that overall the AnnaK model is better of the majority of nodes.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">set_aspect_ratio</span><span class="p">(</span><span class="n">ax</span><span class="p">):</span>
+    
+    <span class="sh">"""</span><span class="s">
+    helper function to make square axes with equal x and y ranges
+    </span><span class="sh">"""</span>
+    
+    <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">.</span><span class="nf">get_xlim</span><span class="p">()</span>
+    <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">.</span><span class="nf">get_ylim</span><span class="p">()</span>
+    <span class="n">both_min</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">min</span><span class="p">([</span><span class="n">xmin</span><span class="p">,</span> <span class="n">ymin</span><span class="p">])</span>
+    <span class="n">both_max</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">max</span><span class="p">([</span><span class="n">xmax</span><span class="p">,</span> <span class="n">ymax</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">.</span><span class="nf">set_xlim</span><span class="p">((</span><span class="n">both_min</span><span class="p">,</span> <span class="n">both_max</span><span class="p">))</span>
+    <span class="n">ax</span><span class="p">.</span><span class="nf">set_ylim</span><span class="p">((</span><span class="n">both_min</span><span class="p">,</span> <span class="n">both_max</span><span class="p">))</span>
+    <span class="n">x0</span><span class="p">,</span><span class="n">x1</span> <span class="o">=</span> <span class="n">ax</span><span class="p">.</span><span class="nf">get_xlim</span><span class="p">()</span>
+    <span class="n">y0</span><span class="p">,</span><span class="n">y1</span> <span class="o">=</span> <span class="n">ax</span><span class="p">.</span><span class="nf">get_ylim</span><span class="p">()</span>
+    <span class="n">ax</span><span class="p">.</span><span class="nf">set_aspect</span><span class="p">(</span><span class="nf">abs</span><span class="p">(</span><span class="n">x1</span><span class="o">-</span><span class="n">x0</span><span class="p">)</span><span class="o">/</span><span class="nf">abs</span><span class="p">(</span><span class="n">y1</span><span class="o">-</span><span class="n">y0</span><span class="p">))</span>
+    
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">subplots</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="p">.</span><span class="nf">scatter</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">isrsa_nn</span><span class="p">.</span><span class="nf">values</span><span class="p">()),</span> <span class="nf">list</span><span class="p">(</span><span class="n">isrsa_annak</span><span class="p">.</span><span class="nf">values</span><span class="p">()),</span> <span class="n">alpha</span><span class="o">=</span><span class="p">.</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="n">line</span> <span class="o">=</span> <span class="n">mlines</span><span class="p">.</span><span class="nc">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="sh">'</span><span class="s">gray</span><span class="sh">'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="sh">'</span><span class="s">--</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">transform</span> <span class="o">=</span> <span class="n">ax</span><span class="p">.</span><span class="n">transAxes</span>
+<span class="n">line</span><span class="p">.</span><span class="nf">set_transform</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">add_line</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="nf">set_aspect_ratio</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_xlabel</span><span class="p">(</span><span class="sh">"</span><span class="s">NN r value</span><span class="sh">"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_ylabel</span><span class="p">(</span><span class="sh">"</span><span class="s">AnnaK r value</span><span class="sh">"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Text(0, 0.5, 'AnnaK r value')
+</code></pre></div></div>
+
+<p><img src="/assets/img/IS-RSA/IS-RSA_53_1.png" alt="png" width="100%"></p>
+
+<p>In our case, some dots are above and below the line with a bit more above the line than below. Thus, we can say that different nodes are fit by the two models with the AnnaK model fitting more nodes than the NN model.</p>
+
+<h2 id="hypothesis-tests">Hypothesis Tests</h2>
+<p>It’s easy enough to calculate a correlation coefficient between the upper triangles of two similarity matrices, but we need to be careful when assessing the statistical significance of this correlation. Parametric p-values won’t work here, since the values in each matrix are not independent: each value is associated with two subjects, meaning that any two values that share a row or column are not independent. In other words, the value for (i,j) is not independent from the value for (i,k), since they share subject i.</p>
+
+<p>This means that we need to calculate significance non-parametrically, by randomly shuffling one of the matrices in a way that respects this complicated dependence structure (<strong>permutation</strong>). We can do this by simply making sure we permute rows and columns at the same time. One easy way to think about this is, in the case of the behavioral similarity matrix, it’s as if we shuffled behavior scores across subjects and recalculated the behavioral similarity matrix. (Or, in the case of the brain similarity matrix, it’s as if we shuffled node timeseries across subjects and recalculated the ISC matrix.) Then we correlate this shuffled matrix with the second matrix, and we do this a large number of times to build up a distribution for the correlation we might expect by chance.</p>
+
+<p>We will use the Adjacency.similarity method again, but now we will specify the number of permutation with n_permute=5000 and the number of CPUs to use with n_jobs. If n_job=-1, the function will parallelize the permutations using all available CPUs.</p>
+
+<p>Note: running these permutation tests over all nodes for both models will take approximately 30 min as it requires running over 2.6 million correlations (2 models X 268 nodes X 5000 permutations).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">isrsa_nn_r</span><span class="p">,</span> <span class="n">isrsa_nn_p</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">isrsa_annak_r</span><span class="p">,</span> <span class="n">isrsa_annak_p</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">similarity_matrices</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">node</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Doing node {} of {}...</span><span class="sh">"</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="n">node</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nf">len</span><span class="p">(</span><span class="n">similarity_matrices</span><span class="p">)),</span> <span class="n">end</span> <span class="o">=</span><span class="sh">"</span><span class="s"> </span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">{}..</span><span class="sh">"</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="n">node</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">end</span> <span class="o">=</span> <span class="sh">"</span><span class="s"> </span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">stats_nn</span> <span class="o">=</span> <span class="n">similarity_matrices</span><span class="p">[</span><span class="n">node</span><span class="p">].</span><span class="nf">similarity</span><span class="p">(</span><span class="n">behav_sim_nn</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="sh">'</span><span class="s">spearman</span><span class="sh">'</span><span class="p">,</span> <span class="n">n_permute</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span> <span class="p">)</span>
+    <span class="n">isrsa_nn_r</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="n">stats_nn</span><span class="p">[</span><span class="sh">'</span><span class="s">correlation</span><span class="sh">'</span><span class="p">]</span>
+    <span class="n">isrsa_nn_p</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="n">stats_nn</span><span class="p">[</span><span class="sh">'</span><span class="s">p</span><span class="sh">'</span><span class="p">]</span>
+    
+    <span class="n">stats_annak</span> <span class="o">=</span> <span class="n">similarity_matrices</span><span class="p">[</span><span class="n">node</span><span class="p">].</span><span class="nf">similarity</span><span class="p">(</span><span class="n">behav_sim_annak</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="sh">'</span><span class="s">spearman</span><span class="sh">'</span><span class="p">,</span> <span class="n">n_permute</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span> <span class="p">)</span>
+    <span class="n">isrsa_annak_r</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="n">stats_annak</span><span class="p">[</span><span class="sh">'</span><span class="s">correlation</span><span class="sh">'</span><span class="p">]</span>
+    <span class="n">isrsa_annak_p</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="n">stats_annak</span><span class="p">[</span><span class="sh">'</span><span class="s">p</span><span class="sh">'</span><span class="p">]</span>
+
+<span class="n">isrsa_nn_r_brain</span> <span class="o">=</span> <span class="nf">roi_to_brain</span><span class="p">(</span><span class="n">pd</span><span class="p">.</span><span class="nc">Series</span><span class="p">(</span><span class="n">isrsa_nn_r</span><span class="p">),</span> <span class="nf">expand_mask</span><span class="p">(</span><span class="n">mask</span><span class="p">))</span>
+<span class="n">isrsa_nn_p_brain</span> <span class="o">=</span> <span class="nf">roi_to_brain</span><span class="p">(</span><span class="n">pd</span><span class="p">.</span><span class="nc">Series</span><span class="p">(</span><span class="n">isrsa_nn_p</span><span class="p">),</span> <span class="nf">expand_mask</span><span class="p">(</span><span class="n">mask</span><span class="p">))</span>
+
+<span class="n">isrsa_annak_r_brain</span> <span class="o">=</span> <span class="nf">roi_to_brain</span><span class="p">(</span><span class="n">pd</span><span class="p">.</span><span class="nc">Series</span><span class="p">(</span><span class="n">isrsa_annak_r</span><span class="p">),</span> <span class="nf">expand_mask</span><span class="p">(</span><span class="n">mask</span><span class="p">))</span>
+<span class="n">isrsa_annak_p_brain</span> <span class="o">=</span> <span class="nf">roi_to_brain</span><span class="p">(</span><span class="n">pd</span><span class="p">.</span><span class="nc">Series</span><span class="p">(</span><span class="n">isrsa_annak_p</span><span class="p">),</span> <span class="nf">expand_mask</span><span class="p">(</span><span class="n">mask</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Feel free to explore the IS-RSA values with the interactive plots. The values should be identical to the analyses run above. However, we now we have p-values to evaluate the likelihood we would observe these values by chance.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Nearest-Neighbor Model</span><span class="sh">'</span><span class="p">)</span>
+<span class="nf">view_img</span><span class="p">(</span><span class="n">isrsa_nn_r_brain</span><span class="p">.</span><span class="nf">to_nifti</span><span class="p">())</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Nearest-Neighbor Model
+
+/Users/naeun-oh/miniconda3/envs/naturalistic37/lib/python3.7/site-packages/numpy/core/fromnumeric.py:755: UserWarning: Warning: 'partition' will ignore the 'mask' of the MaskedArray.
+  a.partition(kth, axis=axis, kind=kind, order=order)
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Anna Karenina Model</span><span class="sh">'</span><span class="p">)</span>
+<span class="nf">view_img</span><span class="p">(</span><span class="n">isrsa_annak_r_brain</span><span class="p">.</span><span class="nf">to_nifti</span><span class="p">())</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Anna Karenina Model
+
+/Users/naeun-oh/miniconda3/envs/naturalistic37/lib/python3.7/site-packages/numpy/core/fromnumeric.py:755: UserWarning: Warning: 'partition' will ignore the 'mask' of the MaskedArray.
+  a.partition(kth, axis=axis, kind=kind, order=order)
+</code></pre></div></div>
+
+<p><strong>Correcting for multiple comparisons</strong></p>
+
+<p>If we want to make inferences about the significance of representational similarity at individual nodes, we need to correct for multiple comparisons (since for each model we’ve run 268 tests – one for each node). We could use Bonferroni correction, where we divide our alpha threshold (typically 0.05) by the number of tests we’ve run (268) to get a corrected alpha threshold (in this case 0.05/268 = 0.00019), but this is probably too conservative, resulting in many false negatives. An alternative is to use the false discovery rate method (FDR) to give us better power (Benjamini &amp; Hochberg, 1995).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># NN model
+</span><span class="n">fdr_thr</span> <span class="o">=</span> <span class="nf">fdr</span><span class="p">(</span><span class="n">pd</span><span class="p">.</span><span class="nc">Series</span><span class="p">(</span><span class="n">isrsa_nn_p</span><span class="p">).</span><span class="n">values</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">'</span><span class="s">FDR Threshold: </span><span class="si">{</span><span class="n">fdr_thr</span><span class="si">}</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="nf">view_img</span><span class="p">(</span><span class="nf">threshold</span><span class="p">(</span><span class="n">isrsa_nn_r_brain</span><span class="p">,</span> <span class="n">isrsa_nn_p_brain</span><span class="p">,</span> <span class="n">thr</span><span class="o">=</span><span class="n">fdr_thr</span><span class="p">).</span><span class="nf">to_nifti</span><span class="p">())</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FDR Threshold: 0.023395320935812838
+</code></pre></div></div>
+
+<p>With the fdr level q=0.05, no regions survive correction. If we set the fdr level q=0.8, the FDR threshold is fairly low p &lt; 0.0234. Then, there are several nodes in the hippocampus, PCC, parietal cortex, cerebellum, and right lateral PFC that survive this threshold.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># AnnaK model
+</span><span class="n">fdr_thr</span> <span class="o">=</span> <span class="nf">fdr</span><span class="p">(</span><span class="n">pd</span><span class="p">.</span><span class="nc">Series</span><span class="p">(</span><span class="n">isrsa_annak_p</span><span class="p">).</span><span class="n">values</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">'</span><span class="s">FDR Threshold: </span><span class="si">{</span><span class="n">fdr_thr</span><span class="si">}</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="nf">view_img</span><span class="p">(</span><span class="nf">threshold</span><span class="p">(</span><span class="n">isrsa_annak_r_brain</span><span class="p">,</span> <span class="n">isrsa_annak_p_brain</span><span class="p">,</span> <span class="n">thr</span><span class="o">=</span><span class="n">fdr_thr</span><span class="p">).</span><span class="nf">to_nifti</span><span class="p">())</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FDR Threshold: -1
+</code></pre></div></div>
+
+<p>It seems that no regions survive correction. And if we set the fdr level high (q=0.81), the threshold is too high to interpret significance (p&lt;0.2).</p>
+
+<p>Why might this happen? It’s likely due to a lack of power. With only 22 subjects, it’s difficult to detect brain-behavior relationships.</p>
+
+<p>The original paper (Finn et al., 2018) took a voxelwise approach, which greatly increased computational complexity and the number of tests, but it also allowed them to take advantage of cluster-based correction, which is another way to control the family-wise error rate that leverages the spatial structure of the data (based on the assumption that if manu contiguous voxels are significant, it’s unlikely to be due to chance).</p>
+
+<p>In our case, using a parcellation approach lowered computational costs, but we may lose sensitivity and we are not able to use cluster correction or other spatial methods.</p>
+
+  </article>
+
+</div>
+
+    </div>
+
+    <!-- Footer -->    
+    <footer class="fixed-bottom">
+      <div class="container mt-0">
+        © Copyright 2023 Naeun  Oh. Powered by <a href="http://jekyllrb.com/" target="_blank" rel="noopener noreferrer">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" target="_blank" rel="noopener noreferrer">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a>.
+
+      </div>
+    </footer>
+
+    <!-- JavaScripts -->
+    <!-- jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Bootsrap & MDB scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.2/dist/umd/popper.min.js" integrity="sha256-l/1pMF/+J4TThfgARS6KwWrk/egwuVvhRzfLAMQ6Ds4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha256-SyTu6CwrfOhaznYZPoolVw2rxoY7lKYKQvqbtqN93HI=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script>
+
+    <!-- Mansory & imagesLoaded -->
+  <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+  <script defer src="/assets/js/mansory.js" type="text/javascript"></script>
+    
+  <!-- Medium Zoom JS -->
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="/assets/js/zoom.js"></script><!-- Load Common JS -->
+  <script src="/assets/js/common.js"></script>
+
+    <!-- MathJax -->
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        tags: 'ams'
+      }
+    };
+  </script>
+  <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
+  <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+    
+  </body>
+</html>
+
